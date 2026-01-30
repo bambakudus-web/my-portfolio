@@ -470,7 +470,7 @@ footer p {
 }
 /* Mobile Responsive Fix */
 @media screen and (max-width: 768px) {
-    .about-container { /* Replace with your actual class name */
+    .about { /* Replace with your actual class name */
         display: flex;
         flex-direction: column; /* Stack image and text vertically */
         text-align: center;
