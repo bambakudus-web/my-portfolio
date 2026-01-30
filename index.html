@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abdul Kudus | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <span class="dev-part">Dev</span>
+            <span class="kelly-part">Kelly</span>
+        </div>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#about">About</a>
+            <a href="#services">Service</a>
+            <a href="#skills">Skills</a>
+            <a href="#testimonia">Testimonia</a>
+            <a href="#contact" class="contact-btn">Contact</a>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+    <div class="hero-content">
+        <h1>Hi, I'm <br><span class="name-text">Abdul Kudus.</span></h1>
+        <p>I am a passionate Full Stack Developer with a mission to crafting exceptional user experiences. Welcome to my portfolio, where I showcase my journey through the world of web development. As a Full Stack Developer, I have honed my skills in both front-end and back-end technologies, 
+        allowing me to create dynamic, interactive, and user-friendly web applications.
+        </p>
+        <div class="hero-btns">
+            <a href="#" class="btn-download">Download CV</a>
+        </div>
+    </div>
+
+    <div class="hero-image-container">
+        <img src="images/IMG_0185 (2).jpg" alt="Abdul Kudus" class="main-img">
+        
+        <div class="social-links-vertical">
+            <a href="https://www.linkedin.com/in/kelly-syder-4a91672b2" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/bambakudus-web" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://www.instagram.com/7starmade7" target="_blank"><i class="fab fa-instagram"></i></a>
+        </div>
+    </div>
+</section>
+<section id="portfolio" class="reveal">
+        <h2 class="section-title">My Portfolio</h2>
+        <div class="portfolio-grid">
+            <div class="portfolio-card">
+                <img src="https://via.placeholder.com/300x200" alt="Project 1">
+                <div class="card-info">
+                    <h3>Hotel Booking Website</h3>
+                    <p>A complete room management system.</p>
+                </div>
+            </div>
+            <div class="portfolio-card">
+                <img src="https://via.placeholder.com/300x200" alt="Project 2">
+                <div class="card-info">
+                    <h3>E-commerce Store</h3>
+                    <p>Modern shopping experience.</p>
+                </div>
+            </div>
+            <div class="portfolio-card">
+                <img src="https://via.placeholder.com/300x200" alt="Project 3">
+                <div class="card-info">
+                    <h3>Dashboard UI</h3>
+                    <p>Interactive data visualization.</p>
+                </div>
+            </div>
+        </div>
+        <div class="center-btn"><button class="view-all">View All</button></div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="about-image">
+            <img src="images/IMG_0185 (2).jpg" alt="About Me">
+        </div>
+        <div class="about-text">
+            <h2>About me</h2>
+            <p>Hello, I'm Abdul Kudus, a passionate web developer with two years of experience in creating stunning and functional websites. I specialize in front-end development, responsive design, and robust back-end systems.</p>
+            <p>My goal is to craft web experiences that not only look great but also deliver seamless functionality and exceptional user experiences. I keep up with the latest industry trends and technologies to ensure my work is always at the forefront of web development.</p>
+            <a href="#contact" class="btn-contact">Contact Me</a>
+        </div>
+    </section>
+
+    <section id="services" class="reveal">
+        <h2 class="section-title">My Service</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="fas fa-laptop-code"></i>
+                <h3>Front-End Development</h3>
+                <p>I specialize in crafting stunning, user-friendly, and fully responsive websites that adapt seamlessly to any device or screen size.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-database"></i>
+                <h3>Database Management</h3>
+                <p>Ensuring your data is stored securely and retrieved efficiently with optimized SQL and NoSQL architectures.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-shopping-cart"></i>
+                <h3>E-commerce Development</h3>
+                <p>Building secure, scalable online stores that provide a smooth shopping experience for your customers.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="reveal">
+        <h2 class="section-title">My Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-item"><i class="fab fa-html5"></i> HTML</div>
+            <div class="skill-item"><i class="fab fa-css3-alt"></i> CSS</div>
+            <div class="skill-item"><i class="fab fa-js"></i> JavaScript</div>
+            <div class="skill-item"><i class="fab fa-react"></i> React</div>
+            <div class="skill-item"><i class="fab fa-php"></i> PHP</div>
+            <div class="skill-item"><i class="fab fa-laravel"></i> Laravel</div>
+        </div>
+    </section>
+
+    <section id="testimonia" class="reveal">
+        <h2 class="section-title">Testimonia</h2>
+        <div class="test-container">
+            <div class="test-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p>"Abdul is an incredible developer. He delivered our project on time and the quality exceeded our expectations!"</p>
+                <h4>Kellysyder</h4>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="reveal">
+        <h2 class="section-title">Get In Touch</h2>
+        <form class="contact-form" action="https://formspree.io/f/mjgyawyw" method="POST">
+            <input type="text" name="name" placeholder="Name" required>
+            <input type="email" name="_replyto" placeholder="Email" required>
+            <textarea name="message" placeholder="Write Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>Copyright © 2026 Abdul Kudus | Code by Abdul</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
