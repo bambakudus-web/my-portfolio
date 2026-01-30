@@ -1,4 +1,0 @@
-cffi==2.0.0
-cryptography==46.0.3
-psutil==7.2.1
-pycparser==3.0

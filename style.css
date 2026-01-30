@@ -1,4 +1,3 @@
-
 html {
     scroll-behavior: smooth;
 }
@@ -469,3 +468,5 @@ footer p {
 .logo:hover .dev-part {
     text-shadow: 0 0 20px rgba(188, 19, 254, 1);
 }
+
+
