@@ -468,5 +468,18 @@ footer p {
 .logo:hover .dev-part {
     text-shadow: 0 0 20px rgba(188, 19, 254, 1);
 }
+/* Mobile Responsive Fix */
+@media screen and (max-width: 768px) {
+    .about-container { /* Replace with your actual class name */
+        display: flex;
+        flex-direction: column; /* Stack image and text vertically */
+        text-align: center;
+        padding: 20px;
+    }
 
+    img {
+        width: 80%; /* Make images smaller on mobile */
+        margin: 0 auto;
+    }
+}
 
