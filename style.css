@@ -408,11 +408,25 @@ footer p {
     header {
         padding: 15px 5%;
     }
+    
 
     nav {
         display: flex;
         justify-content: center;
     }
+@media (max-width: 768px) {
+    nav {
+        overflow-x: auto; /* Allows swiping left and right */
+        white-space: nowrap; /* Keeps links on one line */
+        padding: 10px 0;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .navlist {
+        display: flex;
+        gap: 20px;
+    }
+}
 
     /* Scaling down images so they don't overflow */
     .img-container, .about-image img {
@@ -442,13 +456,11 @@ footer p {
     }
 }
 
-
-}
 /* --- LOGO STYLING --- */
 .logo {
     font-size: 2rem;
     font-weight: 800;
-    letter-spacing: 2px;
+    
     cursor: pointer;
     display: flex;
     align-items: center;
