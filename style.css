@@ -388,14 +388,18 @@ footer p {
     }
 
     /* Adjusting About Me Section */
-    .about-container {
+    .about{
         flex-direction: column; /* Stack image and text */
         text-align: center;
         gap: 30px;
+        align-items: center;
+        padding: 40px 20px;
+
     }
 
     .about-text {
         padding-left: 0;
+        width: 100%;
     }
 }
 
@@ -406,7 +410,8 @@ footer p {
     }
 
     nav {
-        display: none; /* Usually, you'd add a hamburger menu here */
+        display: flex;
+        justify-content: center;
     }
 
     /* Scaling down images so they don't overflow */
@@ -435,6 +440,9 @@ footer p {
     .send-btn {
         width: 100%; /* Make button full width on tiny screens */
     }
+}
+
+
 }
 /* --- LOGO STYLING --- */
 .logo {
@@ -468,18 +476,3 @@ footer p {
 .logo:hover .dev-part {
     text-shadow: 0 0 20px rgba(188, 19, 254, 1);
 }
-/* Mobile Responsive Fix */
-@media screen and (max-width: 768px) {
-    .about { /* Replace with your actual class name */
-        display: flex;
-        flex-direction: column; /* Stack image and text vertically */
-        text-align: center;
-        padding: 20px;
-    }
-
-    img {
-        width: 80%; /* Make images smaller on mobile */
-        margin: 0 auto;
-    }
-}
-
