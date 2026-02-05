@@ -516,3 +516,55 @@ footer p {
     list-style: none; /* Removes bullets */
     gap: 25px;       /* Even spacing between all items */
 }
+
+/* --- Desktop Navigation --- */
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.menu-icon {
+    display: none; /* Hidden on desktop */
+    font-size: 2rem;
+    color: #fff;
+    cursor: pointer;
+}
+
+.navlist {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 25px;
+}
+
+/* --- Mobile Navigation (The Hamburger) --- */
+@media (max-width: 768px) {
+    .menu-icon {
+        display: block; /* Show hamburger on mobile */
+        z-index: 1001;
+    }
+
+    .navlist {
+        position: fixed;
+        top: 0;
+        right: -100%; /* Hidden off-screen */
+        width: 280px;
+        height: 100vh;
+        background: #120821; /* Matches your hero background */
+        flex-direction: column;
+        justify-content: center;
+        transition: all 0.5s ease;
+        z-index: 1000;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.5);
+    }
+
+    /* Slides the menu in when 'open' class is added */
+    .navlist.open {
+        right: 0;
+    }
+
+    .navlist li {
+        margin: 15px 0;
+    }
+}

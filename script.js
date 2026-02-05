@@ -16,3 +16,35 @@ window.addEventListener("scroll", reveal);
 // Initial call to reveal items on page load
 reveal();
 
+
+const menuIcon = document.getElementById('menu-icon');
+const navlist = document.getElementById('navlist');
+const themeToggle = document.getElementById('theme-toggle');
+const themeIcon = document.getElementById('theme-icon');
+
+// 1. Hamburger Toggle Logic
+menuIcon.onclick = () => {
+    navlist.classList.toggle('open');
+    
+    // Switch between bars and X icon
+    const icon = menuIcon.querySelector('i');
+    icon.classList.toggle('fa-bars');
+    icon.classList.toggle('fa-xmark');
+};
+
+// 2. Theme Toggle Logic (Font Awesome version)
+themeToggle.onclick = () => {
+    document.body.classList.toggle('light-mode');
+    
+    if (document.body.classList.contains('light-mode')) {
+        themeIcon.classList.replace('fa-moon', 'fa-sun');
+    } else {
+        themeIcon.classList.replace('fa-sun', 'fa-moon');
+    }
+};
+
+// Close menu when a user clicks a link
+navlist.onclick = () => {
+    navlist.classList.remove('open');
+    menuIcon.querySelector('i').classList.replace('fa-xmark', 'fa-bars');
+};
