@@ -419,10 +419,18 @@ footer p {
 @media (max-width: 768px) {
     .navlist {
         display: flex;
-        gap: 15px;
+        gap: 10px;
         justify-content: center;
         flex-wrap: wrap;
-
+        padding: 0;
+    }
+    .nav-container{
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px;
+    }
+    .navlist li a {
+        font-size: 0.8rem;
     }
 }
 
