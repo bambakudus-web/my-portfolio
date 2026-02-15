@@ -32,16 +32,7 @@ menuIcon.onclick = () => {
     icon.classList.toggle('fa-xmark');
 };
 
-// 2. Theme Toggle Logic (Font Awesome version)
-themeToggle.onclick = () => {
-    document.body.classList.toggle('light-mode');
-    
-    if (document.body.classList.contains('light-mode')) {
-        themeIcon.classList.replace('fa-moon', 'fa-sun');
-    } else {
-        themeIcon.classList.replace('fa-sun', 'fa-moon');
-    }
-};
+
 
 // Close menu when a user clicks a link
 navlist.onclick = () => {
