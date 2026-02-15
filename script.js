@@ -19,8 +19,7 @@ reveal();
 
 const menuIcon = document.getElementById('menu-icon');
 const navlist = document.getElementById('navlist');
-const themeToggle = document.getElementById('theme-toggle');
-const themeIcon = document.getElementById('theme-icon');
+
 
 // 1. Hamburger Toggle Logic
 menuIcon.onclick = () => {
