@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -19,27 +20,26 @@
         <div class="menu-icon" id="menu-icon">
             <i class="fa-solid fa-bars"></i>
         </div>
+    <ul class="navlist" id="navlist">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact" class="contact-btn">Contact</a></li>
+    </ul>
+</div>
+</nav>
+</header>
 
-        <ul class="navlist" id="navlist">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#portfolio">Portfolio</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#contact" class="contact-btn">Contact</a></li>
-        </ul>
-    </div>
-    </nav>
-    </header>
-
-    <section id="home" class="hero">
+<section id="home" class="hero">
     <div class="hero-content">
         <h1>Hi, I'm <br><span class="name-text">Abdul Kudus.</span></h1>
         <p>I am a passionate Full Stack Developer with a mission to crafting exceptional user experiences. Welcome to my portfolio, where I showcase my journey through the world of web development. As a Full Stack Developer, I have honed my skills in both front-end and back-end technologies, 
         allowing me to create dynamic, interactive, and user-friendly web applications.
         </p>
         <div class="hero-btns">
-            <a href="#" class="btn-download">Download CV</a>
+            <a href="cv.pdf" class="btn-download" target="_blank">Download CV</a>
         </div>
     </div>
 
@@ -53,105 +53,119 @@
         </div>
     </div>
 </section>
+
 <section id="portfolio" class="reveal">
-        <h2 class="section-title">My Portfolio</h2>
-        <div class="portfolio-grid">
-            <div class="portfolio-card">
-                <img src="https://via.placeholder.com/300x200" alt="Project 1">
-                <div class="card-info">
-                    <h3>Hotel Booking Website</h3>
-                    <p>A complete room management system.</p>
+    <h2 class="section-title">My Portfolio</h2>
+    <div class="portfolio-grid">
+
+        <!-- Project 1: Amarya Hotel Booking -->
+        <div class="portfolio-card">
+            <div class="card-gallery">
+                <img src="images/1.png" alt="Amarya Hotel Homepage" class="gallery-main" onclick="openLightbox(this.src)">
+                <div class="gallery-thumbs">
+                    <img src="images/1.png" alt="Hotel Homepage" onclick="swapImage(this)">
+                    <img src="images/2.png" alt="Hotel Listing" onclick="swapImage(this)">
+                    <img src="images/3.png" alt="Hotel About" onclick="swapImage(this)">
+                    <img src="images/4.png" alt="Hotel Contact" onclick="swapImage(this)">
                 </div>
             </div>
-            <div class="portfolio-card">
-                <img src="https://via.placeholder.com/300x200" alt="Project 2">
-                <div class="card-info">
-                    <h3>E-commerce Store</h3>
-                    <p>Modern shopping experience.</p>
+            <div class="card-info">
+                <h3>Amarya Hotel Booking</h3>
+                <p>A luxury hotel booking marketplace with real-time room search, multi-currency support, and hotel management.</p>
+                <a href="https://amarya-hotel.netlify.app/" target="_blank" class="card-btn">View Project →</a>
+            </div>
+        </div>
+
+        <!-- Project 2: Citadel Attendance System -->
+        <div class="portfolio-card">
+            <div class="card-gallery">
+                <img src="images/5.png" alt="Citadel Admin Dashboard" class="gallery-main" onclick="openLightbox(this.src)">
+                <div class="gallery-thumbs">
+                    <img src="images/5.png" alt="Admin Dashboard" onclick="swapImage(this)">
+                    <img src="images/6.png" alt="Course Rep View" onclick="swapImage(this)">
+                    <img src="images/7.png" alt="Student Portal" onclick="swapImage(this)">
+                    <img src="images/8.png" alt="Lecturer Session" onclick="swapImage(this)">
                 </div>
             </div>
-            <div class="portfolio-card">
-                <img src="https://via.placeholder.com/300x200" alt="Project 3">
-                <div class="card-info">
-                    <h3>Dashboard UI</h3>
-                    <p>Interactive data visualization.</p>
-                </div>
+            <div class="card-info">
+                <h3>Citadel Attendance System</h3>
+                <p>A role-based attendance and access management system for students, lecturers, course reps, and admins.</p>
+                <a href="https://citadel-production-5edc.up.railway.app" target="_blank" class="card-btn">View Project →</a>
             </div>
         </div>
-    </section>
 
-    <section id="about" class="about">
-        <div class="about-image">
-            <img src="images/IMG_0185 (2).jpg" alt="About Me">
-        </div>
-        <div class="about-text">
-            <h2>About me</h2>
-            <p>Hello, I'm Abdul Kudus, a passionate web developer with two years of experience in creating stunning and functional websites. I specialize in front-end development, responsive design, and robust back-end systems.</p>
-            <p>My goal is to craft web experiences that not only look great but also deliver seamless functionality and exceptional user experiences. I keep up with the latest industry trends and technologies to ensure my work is always at the forefront of web development.</p>
-            <a href="#contact" class="btn-contact">Contact Me</a>
-        </div>
-    </section>
-
-    <section id="services" class="reveal">
-        <h2 class="section-title">My Service</h2>
-        <div class="services-grid">
-            <div class="service-card">
-                <i class="fas fa-laptop-code"></i>
-                <h3>Front-End Development</h3>
-                <p>I specialize in crafting stunning, user-friendly, and fully responsive websites that adapt seamlessly to any device or screen size.</p>
-            </div>
-            <div class="service-card">
-                <i class="fas fa-database"></i>
-                <h3>Database Management</h3>
-                <p>Ensuring your data is stored securely and retrieved efficiently with optimized SQL and NoSQL architectures.</p>
-            </div>
-            <div class="service-card">
-                <i class="fas fa-shopping-cart"></i>
-                <h3>E-commerce Development</h3>
-                <p>Building secure, scalable online stores that provide a smooth shopping experience for your customers.</p>
+        <!-- Project 3: Coming Soon -->
+        <div class="portfolio-card coming-soon">
+            <div class="coming-soon-badge">Coming Soon</div>
+            <div class="card-info">
+                <h3>New Project</h3>
+                <p>Something exciting is in the works. Stay tuned!</p>
             </div>
         </div>
-    </section>
 
-    <section id="skills" class="reveal">
-        <h2 class="section-title">My Skills</h2>
-        <div class="skills-grid">
-            <div class="skill-item"><i class="fab fa-html5"></i> HTML</div>
-            <div class="skill-item"><i class="fab fa-css3-alt"></i> CSS</div>
-            <div class="skill-item"><i class="fab fa-js"></i> JavaScript</div>
-            <div class="skill-item"><i class="fab fa-react"></i> React</div>
-            <div class="skill-item"><i class="fab fa-php"></i> PHP</div>
-            <div class="skill-item"><i class="fab fa-laravel"></i> Laravel</div>
+    </div>
+</section>
+
+<section id="about" class="about">
+    <div class="about-image">
+        <img src="images/IMG_0185 (2).jpg" alt="About Me">
+    </div>
+    <div class="about-text">
+        <h2>About me</h2>
+        <p>Hello, I'm Abdul Kudus, a passionate web developer with two years of experience in creating stunning and functional websites. I specialize in front-end development, responsive design, and robust back-end systems.</p>
+        <p>My goal is to craft web experiences that not only look great but also deliver seamless functionality and exceptional user experiences. I keep up with the latest industry trends and technologies to ensure my work is always at the forefront of web development.</p>
+        <a href="#contact" class="btn-contact">Contact Me</a>
+    </div>
+</section>
+
+<section id="services" class="reveal">
+    <h2 class="section-title">My Service</h2>
+    <div class="services-grid">
+        <div class="service-card">
+            <i class="fas fa-laptop-code"></i>
+            <h3>Front-End Development</h3>
+            <p>I specialize in crafting stunning, user-friendly, and fully responsive websites that adapt seamlessly to any device or screen size.</p>
         </div>
-    </section>
-
-    <section id="testimonial" class="reveal">
-        <h2 class="section-title">Testimonial</h2>
-        <div class="test-container">
-            <div class="test-card">
-                <div class="stars">⭐⭐⭐⭐⭐</div>
-                <p>"Abdul is an incredible developer. He delivered our project on time and the quality exceeded our expectations!"</p>
-                <h4>Kellysyder</h4>
-            </div>
+        <div class="service-card">
+            <i class="fas fa-database"></i>
+            <h3>Database Management</h3>
+            <p>Ensuring your data is stored securely and retrieved efficiently with optimized SQL and NoSQL architectures.</p>
         </div>
-    </section>
+        <div class="service-card">
+            <i class="fas fa-shopping-cart"></i>
+            <h3>E-commerce Development</h3>
+            <p>Building secure, scalable online stores that provide a smooth shopping experience for your customers.</p>
+        </div>
+    </div>
+</section>
 
-    <section id="contact" class="reveal">
-        <h2 class="section-title">Get In Touch</h2>
-        <form class="contact-form" action="https://formspree.io/f/mjgyawyw" method="POST">
-            <input type="text" name="name" placeholder="Name" required>
-            <input type="email" name="_replyto" placeholder="Email" required>
-            <textarea name="message" placeholder="Write Your Message" required></textarea>
-            <button type="submit">Send Message</button>
-        </form>
-    </section>
+<section id="skills" class="reveal">
+    <h2 class="section-title">My Skills</h2>
+    <div class="skills-grid">
+        <div class="skill-item"><i class="fab fa-html5"></i> HTML</div>
+        <div class="skill-item"><i class="fab fa-css3-alt"></i> CSS</div>
+        <div class="skill-item"><i class="fab fa-js"></i> JavaScript</div>
+        <div class="skill-item"><i class="fab fa-react"></i> React</div>
+        <div class="skill-item"><i class="fab fa-php"></i> PHP</div>
+        <div class="skill-item"><i class="fab fa-laravel"></i> Laravel</div>
+    </div>
+</section>
 
-    <footer>
-        <p>Copyright © 2026 Abdul Kudus | Code by Abdul</p>
-    </footer>
+<section id="contact" class="reveal">
+    <h2 class="section-title">Get In Touch</h2>
+    <form class="contact-form" action="https://formspree.io/f/mjgyawyw" method="POST">
+        <input type="text" name="name" placeholder="Name" required>
+        <input type="email" name="_replyto" placeholder="Email" required>
+        <textarea name="message" placeholder="Write Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+    </form>
+</section>
 
-    <script src="script.js"></script>
+<footer>
+    <p>Copyright ©️ 2026 Abdul Kudus | Code by Abdul</p>
+</footer>
+
+<script src="script.js"></script>
 </div>
 </body>
 </html>
-

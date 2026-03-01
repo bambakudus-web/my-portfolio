@@ -18,9 +18,9 @@ body { background-color: var(--bg-color); color: var(--text-primary); }
 
 header {
     display: flex; justify-content: space-between; align-items: center;
-    padding: 20px 8%; position: fixed; width: 90%; top: 0;
+    padding: 20px 8%; position: fixed; width: 100%; top: 0;
     background: rgba(18, 8, 33, 0.9); z-index: 100;
-    max-width: 1200px; margin: auto;
+    max-width: 1200px; margin: auto; left: 0;
 }
 
 nav a { color: white; text-decoration: none; margin-left: 20px; font-size: 14px; }
@@ -261,29 +261,7 @@ main-img:hover {
     font-weight: bold;
     cursor: pointer;
 }
-/* --- TESTIMONIAl STYLING --- */
-.testimonial {
-    padding: 100px 10%;
-    text-align: center;
-}
 
-.test-card {
-    background: #1a0f2e; /* Darker purple box */
-    padding: 40px;
-    border-radius: 10px;
-    border: 2px solid #bc13fe; /* Glowing purple border */
-    max-width: 700px;
-    margin: 0 auto;
-    box-shadow: 0 0 20px rgba(188, 19, 254, 0.3);
-}
-
-.stars { color: #f1c40f; margin-bottom: 20px; }
-
-.test-card p {
-    font-style: italic;
-    color: #d1d1d1;
-    margin-bottom: 20px;
-}
 
 /* --- CONTACT FORM STYLING --- */
 .contact-container {
@@ -471,6 +449,7 @@ footer p {
     display: flex;
     align-items: center;
     transition: 0.3s ease;
+    margin-right: auto;
 }
 
 /* Color for 'DEV' - Neon Purple */
@@ -496,32 +475,22 @@ footer p {
 }
 
 .wrapper{
-    max-inline-size: 1000px;
+    max-inline-size: 1400px;
     margin-inline: auto;
 }
-.nav-container {
-  max-width: 1100px; /* This keeps it from being too long */
-  margin: 0 auto;    /* This centers the container on the page */
-  display: flex;
-  justify-content: space-between; /* Pushes Logo to left, Links to right */
-  align-items: center;
-  padding: 0 20px;
-}
+
 
 
 /* The actual list styling */
-.navlist {
-    display: flex;
-    align-items: center;
-    list-style: none; /* Removes bullets */
-    gap: 25px;       /* Even spacing between all items */
-}
+
 
 /* --- Desktop Navigation --- */
 .nav-container {
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    padding: 0 20px;
+    width: 100%;
 }
 
 .menu-icon {
@@ -567,4 +536,90 @@ footer p {
     .navlist li {
         margin: 15px 0;
     }
+}
+
+/* --- PORTFOLIO GALLERY --- */
+.portfolio-card {
+    padding: 0;
+    overflow: hidden;
+}
+
+.gallery-main {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px 8px 0 0;
+    display: block;
+    transition: 0.3s ease;
+}
+
+.gallery-thumbs {
+    display: flex;
+    gap: 6px;
+    padding: 8px 10px;
+    background: #110820;
+}
+
+.gallery-thumbs img {
+    width: 25%;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 4px;
+    cursor: pointer;
+    opacity: 0.6;
+    border: 2px solid transparent;
+    transition: none;
+}
+
+
+.gallery-thumbs img:hover {
+    opacity: 1;
+    border-color: var(--accent-color);
+}
+
+    
+
+
+.card-info {
+    padding: 15px;
+}
+
+.card-btn {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 8px 18px;
+    border: 1px solid #a020f0;
+    color: #a020f0;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+.card-btn:hover {
+    background: #a020f0;
+    color: white;
+    box-shadow: 0 0 10px #a020f0;
+}
+
+.coming-soon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 250px;
+    border: 2px dashed #33264a !important;
+    opacity: 0.7;
+}
+
+.coming-soon-badge {
+    background: #a020f0;
+    color: white;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
