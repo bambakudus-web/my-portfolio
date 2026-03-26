@@ -128,6 +128,8 @@ input, textarea {
     /* This creates a fade effect on the edges of the photo */
     -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent),
                         linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent),
+                linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
     mask-composite: intersect;
 }
 
@@ -306,11 +308,10 @@ main-img:hover {
     cursor: pointer;
     margin-top: 10px;
     transition: all 0.3s ease; /* Smooth transition for hover */
-    
-    
-    
-    /* THE NEON GLOW EFFECT */
+     /* THE NEON GLOW EFFECT */
     box-shadow: 0 0 10px rgba(188, 19, 254, 0.4); 
+    display: block;
+    margin: 10px auto 0; /* Centers the button */
 }
 
 /* Hover effect to make it feel interactive */
