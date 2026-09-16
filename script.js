@@ -71,6 +71,44 @@ if (tiltEl && !prefersReducedMotion) {
   });
 }
 
+// contact form — AJAX submit so people stay on the branded page
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+  const statusEl = document.getElementById('formStatus');
+  const submitBtn = contactForm.querySelector('button[type="submit"]');
+  const originalBtnHTML = submitBtn.innerHTML;
+
+  contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    statusEl.textContent = '';
+    statusEl.className = 'form-status';
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = 'Sending...';
+
+    try {
+      const response = await fetch(contactForm.action, {
+        method: 'POST',
+        body: new FormData(contactForm),
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        statusEl.textContent = "Thanks — your message is in. I'll get back to you soon.";
+        statusEl.classList.add('success');
+        contactForm.reset();
+      } else {
+        statusEl.textContent = "Something went wrong sending that. Try again, or email me directly.";
+        statusEl.classList.add('error');
+      }
+    } catch (err) {
+      statusEl.textContent = "Network error — check your connection and try again.";
+      statusEl.classList.add('error');
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = originalBtnHTML;
+    }
+  });
+}
 // portfolio card tilt + dot pagination
 document.querySelectorAll('.pcard').forEach(card => {
   if (!prefersReducedMotion) {
