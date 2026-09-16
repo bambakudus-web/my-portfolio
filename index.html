@@ -1,171 +1,280 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abdul Kudus | Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DevKelly | Harruna Abdul Kudus</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="wrapper">
-    <header>
-        <div class="logo">
-            <span class="dev-part">Dev</span>
-            <span class="kelly-part">Kelly</span>
-        </div>
-    <nav>
-    <div class="nav-container">
-        <div class="menu-icon" id="menu-icon">
-            <i class="fa-solid fa-bars"></i>
-        </div>
+<header>
+  <div class="nav-inner">
+    <div class="logo"><span class="dev-part">Dev</span><span class="kelly-part">Kelly</span></div>
+    <div class="menu-icon" id="menu-icon"><i class="fa-solid fa-bars"></i></div>
     <ul class="navlist" id="navlist">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#contact" class="contact-btn">Contact</a></li>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact" class="contact-btn">Contact</a></li>
     </ul>
-</div>
-</nav>
+  </div>
 </header>
 
 <section id="home" class="hero">
-    <div class="hero-content">
-        <h1>Hi, I'm <br><span class="name-text">Abdul Kudus.</span></h1>
-        <p>I am a passionate Full Stack Developer with a mission to crafting exceptional user experiences. Welcome to my portfolio, where I showcase my journey through the world of web development. As a Full Stack Developer, I have honed my skills in both front-end and back-end technologies, 
-        allowing me to create dynamic, interactive, and user-friendly web applications.
-        </p>
-        <div class="hero-btns">
-            <a href="files/cv.pdf" class="btn-download" target="_blank">Download CV</a>
-        </div>
+  <div class="wrapper hero-grid">
+    <div class="hero-copy">
+      <span class="status-pill"><span class="status-dot"></span>Available for freelance work</span>
+      <h1>Engineering the Future <span class="accent-word">One System</span> at a Time.</h1>
+      <p class="lede">
+        Building software that scales.
+        Designing systems that last.
+        Solving problems others avoid.
+        Frontend. Backend. Databases. Cloud. AI.
+        From concept to production, I turn ambitious ideas into world-class digital experiences.
+      </p>
+      <div class="hero-ctas">
+        <a href="#portfolio" class="btn-primary">View my work <i class="fa-solid fa-arrow-right"></i></a>
+        <a href="files/Harruna_Abdul_Kudus_CV (1).pdf" target="_blank" class="btn-ghost">Download CV <i class="fa-solid fa-download"></i></a>
+      </div>
+      <div class="term-strip">
+        <span class="prompt">$</span> <span id="typed-line"></span><span class="cursor"></span>
+      </div>
     </div>
 
-    <div class="hero-image-container">
-        <img src="images/IMG_0185 (2).jpg" alt="Abdul Kudus" class="main-img">
-        
-        <div class="social-links-vertical">
-            <a href="https://www.linkedin.com/in/kelly-syder-4a91672b2" target="_blank"><i class="fab fa-linkedin"></i></a>
-            <a href="https://github.com/bambakudus-web" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="https://www.instagram.com/7starmade7" target="_blank"><i class="fab fa-instagram"></i></a>
+    <div class="hero-visual">
+      <div class="photo-block">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="photo-frame" id="tilt-photo">
+          <img src="images/IMG_0185 (2).jpg" alt="Harruna Abdul Kudus">
         </div>
+        <div class="float-chip chip-1"><strong>6+</strong>SaaS products shipped</div>
+      </div>
+      <div class="social-links-vertical">
+        <a href="https://www.linkedin.com/in/abdul-kudus-harruna-4a91672b2" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/bambakudus-web" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://www.instagram.com/7starmade7" target="_blank"><i class="fab fa-instagram"></i></a>
+      </div>
     </div>
+  </div>
+
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      <span><i class="fa-solid fa-code"></i>Next.js</span>
+      <span><i class="fa-solid fa-code"></i>React</span>
+      <span><i class="fa-solid fa-code"></i>TypeScript</span>
+      <span><i class="fa-solid fa-code"></i>Node.js / Express</span>
+      <span><i class="fa-solid fa-code"></i>Prisma</span>
+      <span><i class="fa-solid fa-code"></i>PostgreSQL</span>
+      <span><i class="fa-solid fa-code"></i>MySQL</span>
+      <span><i class="fa-solid fa-code"></i>PHP</span>
+      <span><i class="fa-solid fa-code"></i>Tailwind CSS</span>
+      <span><i class="fa-solid fa-code"></i>Railway</span>
+      <!-- duplicate for seamless loop -->
+      <span><i class="fa-solid fa-code"></i>Next.js</span>
+      <span><i class="fa-solid fa-code"></i>React</span>
+      <span><i class="fa-solid fa-code"></i>TypeScript</span>
+      <span><i class="fa-solid fa-code"></i>Node.js / Express</span>
+      <span><i class="fa-solid fa-code"></i>Prisma</span>
+      <span><i class="fa-solid fa-code"></i>PostgreSQL</span>
+      <span><i class="fa-solid fa-code"></i>MySQL</span>
+      <span><i class="fa-solid fa-code"></i>PHP</span>
+      <span><i class="fa-solid fa-code"></i>Tailwind CSS</span>
+      <span><i class="fa-solid fa-code"></i>Railway</span>
+    </div>
+  </div>
 </section>
 
-<section id="portfolio" class="reveal">
-    <h2 class="section-title">My Portfolio</h2>
+<section id="portfolio">
+  <div class="wrapper">
+    <div class="section-head">
+      <span class="eyebrow">ls ./projects</span>
+      <h2 class="section-title">Selected work</h2>
+    </div>
     <div class="portfolio-grid">
 
-        <!-- Project 1: Amarya Hotel Booking -->
-        <div class="portfolio-card">
-            <div class="card-gallery">
-                <img src="images/1.png" alt="Amarya Hotel Homepage" class="gallery-main" onclick="openLightbox(this.src)">
-                <div class="gallery-thumbs">
-                    <img src="images/1.png" alt="Hotel Homepage" onclick="swapImage(this)">
-                    <img src="images/2.png" alt="Hotel Listing" onclick="swapImage(this)">
-                    <img src="images/3.png" alt="Hotel About" onclick="swapImage(this)">
-                    <img src="images/4.png" alt="Hotel Contact" onclick="swapImage(this)">
-                </div>
-            </div>
-            <div class="card-info">
-                <h3>Amarya Hotel Booking</h3>
-                <p>A luxury hotel booking marketplace with real-time room search, multi-currency support, and hotel management.</p>
-                <a href="https://amarya-hotel.netlify.app/" target="_blank" class="card-btn">View Project →</a>
-            </div>
+      <!-- PromptForge -->
+      <div class="pcard">
+        <div class="browser-bar"><span class="bdot r"></span><span class="bdot y"></span><span class="bdot g"></span><span class="burl">promptforgeus.com</span></div>
+        <div class="pcard-media">
+          <img src="images/1.png" class="active" alt="PromptForge homepage">
+          <img src="images/2.png" alt="PromptForge dashboard">
+          <img src="images/3.png" alt="PromptForge prompt field">
+          <img src="images/4.png" alt="PromptForge explore section">
         </div>
+        <div class="dots"></div>
+        <div class="pcard-body">
+          <div class="pcard-top"><h3>PromptForge</h3><span class="badge live">Live</span></div>
+          <p>Interviews professionals about their goal, then generates a structured, scored prompt through a two-stage self-critique pipeline. Live with paying users on a GHS 60/month tier.</p>
+          <div class="tags"><span>Next.js 16</span><span>Prisma</span><span>PostgreSQL</span><span>Claude API</span><span>Paystack</span></div>
+          <a href="https://promptforgeus.com/" target="_blank" class="pcard-link">View project <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
 
-        <!-- Project 2: Citadel Attendance System -->
-        <div class="portfolio-card">
-            <div class="card-gallery">
-                <img src="images/5.png" alt="Citadel Admin Dashboard" class="gallery-main" onclick="openLightbox(this.src)">
-                <div class="gallery-thumbs">
-                    <img src="images/5.png" alt="Admin Dashboard" onclick="swapImage(this)">
-                    <img src="images/6.png" alt="Course Rep View" onclick="swapImage(this)">
-                    <img src="images/7.png" alt="Student Portal" onclick="swapImage(this)">
-                    <img src="images/8.png" alt="Lecturer Session" onclick="swapImage(this)">
-                </div>
-            </div>
-            <div class="card-info">
-                <h3>Citadel Attendance System</h3>
-                <p>A role-based attendance and access management system for students, lecturers, course reps, and admins.</p>
-                <a href="https://citadel-production-5edc.up.railway.app" target="_blank" class="card-btn">View Project →</a>
-            </div>
+      <!-- Kellylodge -->
+      <div class="pcard">
+        <div class="browser-bar"><span class="bdot r"></span><span class="bdot y"></span><span class="bdot g"></span><span class="burl">kellylodge-production.up.railway.app</span></div>
+        <div class="pcard-media">
+          <img src="images/5.png" class="active" alt="Kellylodge homepage">
+          <img src="images/6.png" alt="List of hostels">
+          <img src="images/7.png" alt="Hostel details">
+          <img src="images/8.png" alt="Receipt">
         </div>
+        <div class="dots"></div>
+        <div class="pcard-body">
+          <div class="pcard-top"><h3>Kellylodge</h3><span class="badge live">Live</span></div>
+          <p>Hostel listing, booking, and payment platform for KsTU students. Owners post per-room listings and get paid automatically through Paystack split payouts as rooms are booked.</p>
+          <div class="tags"><span>Node.js</span><span>Socket.io</span><span>Paystack</span><span>Arkesel SMS</span></div>
+          <a href="https://kellylodge-production.up.railway.app/" target="_blank" class="pcard-link">View project <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
 
-        <!-- Project 3: Coming Soon -->
-        <div class="portfolio-card coming-soon">
-            <div class="coming-soon-badge">Coming Soon</div>
-            <div class="card-info">
-                <h3>New Project</h3>
-                <p>Something exciting is in the works. Stay tuned!</p>
-            </div>
+      <!-- MenuMuse -->
+      <div class="pcard">
+        <div class="browser-bar"><span class="bdot r"></span><span class="bdot y"></span><span class="bdot g"></span><span class="burl">menumuse-v2-production.up.railway.app</span></div>
+        <div class="pcard-media">
+          <img src="images/9.png" class="active" alt="MenuMuse homepage">
+          <img src="images/10.png" alt="MenuMuse content generator">
+          <img src="images/11.png" alt="MenuMuse content library">
+          <img src="images/12.png" alt="MenuMuse pricing">
         </div>
+        <div class="dots"></div>
+        <div class="pcard-body">
+          <div class="pcard-top"><h3>MenuMuse</h3><span class="badge live">Live</span></div>
+          <p>AI marketing copy generator for restaurant owners: Instagram captions, TikTok content, menu descriptions, promo emails, and Google ads, tuned for a Ghana-first audience.</p>
+          <div class="tags"><span>Next.js</span><span>Claude API</span><span>Paystack</span><span>Google OAuth</span></div>
+          <a href="https://menumuse-v2-production.up.railway.app/" target="_blank" class="pcard-link">View project <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <!-- KellyPOS -->
+      <div class="pcard">
+        <div class="browser-bar"><span class="bdot r"></span><span class="bdot y"></span><span class="bdot g"></span><span class="burl">kellypos.local</span></div>
+        <div class="pcard-media">
+          <div class="mock-screen">
+            <div class="mock-bar"></div>
+            <div class="mock-row">
+              <div class="mock-block"></div>
+              <div class="mock-block"></div>
+              <div class="mock-block"></div>
+            </div>
+          </div>
+        </div>
+        <div class="pcard-body">
+          <div class="pcard-top"><h3>KellyPOS</h3><span class="badge pilot">In pilot</span></div>
+          <p>Offline-first point of sale built for small retail shops in Ghana. Works fully offline and syncs when back online, with cash/MoMo checkout, RBAC, shift reconciliation, and audit logging. Piloting live at Arizona Global Business Centre.</p>
+          <div class="tags"><span>Next.js 15</span><span>Prisma</span><span>Dexie.js</span><span>Tailwind CSS</span></div>
+          <span class="pcard-link" style="color:var(--text-dim);cursor:default;">Case study in progress</span>
+        </div>
+      </div>
 
     </div>
+    <div class="more-cta"><a href="https://github.com/bambakudus-web" target="_blank">See more on GitHub, @bambakudus-web</a></div>
+  </div>
 </section>
 
-<section id="about" class="about">
-    <div class="about-image">
-        <img src="images/IMG_0185 (2).jpg" alt="About Me">
+<section id="about">
+  <div class="wrapper about-grid">
+    <div class="about-photo">
+      <img src="images/IMG_0185 (2).jpg" alt="Harruna Abdul Kudus">
     </div>
     <div class="about-text">
-        <h2>About me</h2>
-        <p>Hello, I'm Abdul Kudus, a passionate web developer with two years of experience in creating stunning and functional websites. I specialize in front-end development, responsive design, and robust back-end systems.</p>
-        <p>My goal is to craft web experiences that not only look great but also deliver seamless functionality and exceptional user experiences. I keep up with the latest industry trends and technologies to ensure my work is always at the forefront of web development.</p>
-        <a href="#contact" class="btn-contact">Contact Me</a>
+      <span class="eyebrow">whoami</span>
+      <h2 class="section-title" style="margin-bottom:18px;">About me</h2>
+      <p>I'm Harruna Abdul Kudus, working as DevKelly. I'm a Computer Science student at Kumasi Technical University, and a solo full-stack developer who takes SaaS products from idea to paying users.</p>
+      <p>Most of what I build solves a real problem for a real business first: KellyPOS runs a print shop's checkout offline, Kellylodge gets students into hostel rooms without the WhatsApp back-and-forth, PromptForge and MenuMuse turn AI into something non-technical people can actually use.</p>
+      <p>I work end to end: database design, backend, frontend, and deployment, usually from a terminal in WSL2.</p>
+      <div class="chip-row">
+        <span>Solo full-stack developer</span>
+        <span>Computer Science student, KsTU</span>
+        <span>AWS Cloud Practitioner (in progress)</span>
+      </div>
     </div>
+  </div>
 </section>
 
-<section id="services" class="reveal">
-    <h2 class="section-title">My Service</h2>
+<section id="services">
+  <div class="wrapper">
+    <div class="section-head">
+      <span class="eyebrow">services --list</span>
+      <h2 class="section-title">What I can build for you</h2>
+    </div>
     <div class="services-grid">
-        <div class="service-card">
-            <i class="fas fa-laptop-code"></i>
-            <h3>Front-End Development</h3>
-            <p>I specialize in crafting stunning, user-friendly, and fully responsive websites that adapt seamlessly to any device or screen size.</p>
-        </div>
-        <div class="service-card">
-            <i class="fas fa-database"></i>
-            <h3>Database Management</h3>
-            <p>Ensuring your data is stored securely and retrieved efficiently with optimized SQL and NoSQL architectures.</p>
-        </div>
-        <div class="service-card">
-            <i class="fas fa-shopping-cart"></i>
-            <h3>E-commerce Development</h3>
-            <p>Building secure, scalable online stores that provide a smooth shopping experience for your customers.</p>
-        </div>
+      <div class="service-card">
+        <i class="fa-solid fa-layer-group"></i>
+        <h3>Full-Stack SaaS Development</h3>
+        <p>End-to-end products: Next.js or React front end, Node.js or PHP back end, Prisma/PostgreSQL or MySQL, deployed and monitored in production.</p>
+      </div>
+      <div class="service-card">
+        <i class="fa-solid fa-wifi"></i>
+        <h3>Offline-First & PWA Systems</h3>
+        <p>Apps that keep working without a stable connection, using IndexedDB/Dexie.js sync patterns, built for the reality of running a business in Ghana.</p>
+      </div>
+      <div class="service-card">
+        <i class="fa-solid fa-money-bill-transfer"></i>
+        <h3>API & Payment Integration</h3>
+        <p>Auth, role-based access control, audit logging, and payment rails like Paystack and Mobile Money, wired up securely and tested.</p>
+      </div>
+      <div class="service-card">
+        <i class="fa-solid fa-mobile"></i>
+        <h3>Mobile Apps</h3>
+        <p>Building cross-platform mobile applications with React Native or Flutter, optimized for performance and user experience.</p>
+      </div>
+      <div class="service-card">
+        <i class="fa-solid fa-globe"></i>
+        <h3>Website Design & Development</h3>
+        <p>Creating responsive and user-friendly websites with modern design principles and best practices.</p>
+      </div>
+      <div class="service-card">
+        <i class="fa-solid fa-database"></i>
+        <h3>Database Design & Optimization</h3>
+        <p>Designing efficient database schemas, optimizing queries, and ensuring data integrity for scalable applications.</p>
+      </div>
     </div>
+  </div>
 </section>
 
-<section id="skills" class="reveal">
-    <h2 class="section-title">My Skills</h2>
-    <div class="skills-grid">
-        <div class="skill-item"><i class="fab fa-html5"></i> HTML</div>
-        <div class="skill-item"><i class="fab fa-css3-alt"></i> CSS</div>
-        <div class="skill-item"><i class="fab fa-js"></i> JavaScript</div>
-        <div class="skill-item"><i class="fab fa-react"></i> React</div>
-        <div class="skill-item"><i class="fab fa-php"></i> PHP</div>
-        <div class="skill-item"><i class="fab fa-laravel"></i> Laravel</div>
+<section id="skills">
+  <div class="wrapper">
+    <div class="section-head">
+      <span class="eyebrow">cat tech_stack.json</span>
+      <h2 class="section-title">Skills</h2>
     </div>
+    <div class="stack-card">
+      <div><span class="punc">{</span></div>
+      <div class="stack-line"><span class="key">"frontend"</span><span class="punc">:</span> <span class="val">["Next.js", "React", "Angular", "TypeScript", "Tailwind CSS"]</span><span class="punc">,</span></div>
+      <div class="stack-line"><span class="key">"backend"</span><span class="punc">:</span> <span class="val">["Node.js", "Express", "PHP", "Laravel"]</span><span class="punc">,</span></div>
+      <div class="stack-line"><span class="key">"database"</span><span class="punc">:</span> <span class="val">["PostgreSQL", "MySQL", "MongoDB", "Prisma", "Dexie.js"]</span><span class="punc">,</span></div>
+      <div class="stack-line"><span class="key">"tools"</span><span class="punc">:</span> <span class="val">["Railway", "GitHub", "WSL2 / Linux", "AWS"]</span></div>
+      <div><span class="punc">}</span></div>
+    </div>
+  </div>
 </section>
 
-<section id="contact" class="reveal">
-    <h2 class="section-title">Get In Touch</h2>
+<section id="contact">
+  <div class="wrapper contact-inner">
+    <span class="eyebrow" style="justify-content:center;display:inline-block;">send_message</span>
+    <h2 class="section-title">Get in touch</h2>
+    <p>Have a project in mind, or want to talk about how KellyPOS could work for your business? Send a message.</p>
     <form class="contact-form" action="https://formspree.io/f/mjgyawyw" method="POST">
-        <input type="text" name="name" placeholder="Name" required>
-        <input type="email" name="_replyto" placeholder="Email" required>
-        <textarea name="message" placeholder="Write Your Message" required></textarea>
-        <button type="submit">Send Message</button>
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" placeholder="Your name" required>
+      <label for="email">Email</label>
+      <input type="email" id="email" name="_replyto" placeholder="you@example.com" required>
+      <label for="message">Message</label>
+      <textarea id="message" name="message" placeholder="What are you building?" required></textarea>
+      <button type="submit" class="btn-primary" style="justify-content:center;">Send message <i class="fa-solid fa-paper-plane"></i></button>
     </form>
+  </div>
 </section>
 
 <footer>
-    <p>Copyright ©️ 2026 Abdul Kudus | Code by Abdul</p>
+  <p>Copyright ©️ 2026 Abdul Kudus | Code by Abdul</p>
 </footer>
 
 <script src="script.js"></script>
-</div>
 </body>
 </html>

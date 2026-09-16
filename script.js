@@ -1,54 +1,103 @@
-// Simple Scroll Reveal Effect
-function reveal() {
-    var reveals = document.querySelectorAll(".reveal");
-    for (var i = 0; i < reveals.length; i++) {
-        var windowHeight = window.innerHeight;
-        var elementTop = reveals[i].getBoundingClientRect().top;
-        var elementVisible = 150;
-        if (elementTop < windowHeight - elementVisible) {
-            reveals[i].classList.add("active");
-        }
-    }
-}
-
-window.addEventListener("scroll", reveal);
-
-// Initial call to reveal items on page load
-reveal();
-
-
+// mobile nav
 const menuIcon = document.getElementById('menu-icon');
 const navlist = document.getElementById('navlist');
-
-
-// 1. Hamburger Toggle Logic
 menuIcon.onclick = () => {
-    navlist.classList.toggle('open');
-    
-    // Switch between bars and X icon
-    const icon = menuIcon.querySelector('i');
-    icon.classList.toggle('fa-bars');
-    icon.classList.toggle('fa-xmark');
+  navlist.classList.toggle('open');
+  const icon = menuIcon.querySelector('i');
+  icon.classList.toggle('fa-bars');
+  icon.classList.toggle('fa-xmark');
 };
-
-
-
-// Close menu when a user clicks a link
-navlist.onclick = () => {
+navlist.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
     navlist.classList.remove('open');
     menuIcon.querySelector('i').classList.replace('fa-xmark', 'fa-bars');
-};
+  });
+});
 
+// scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      entry.target.style.transitionDelay = (i % 4) * 0.08 + 's';
+      entry.target.classList.add('in-view');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15 });
+document.querySelectorAll('.pcard').forEach(el => observer.observe(el));
 
-function swapImage(thumb) {
-    const mainImg = thumb.closest('.card-gallery').querySelector('.gallery-main');
-    mainImg.src = thumb.src;
+// terminal typing strip
+const lines = [
+  'whoami  ->  full-stack developer, Kumasi, Ghana',
+  'status  ->  open for freelance work',
+  'focus   ->  Creating scalable software with uncompromising quality.'
+];
+const typedEl = document.getElementById('typed-line');
+let lineIndex = 0, charIndex = 0, deleting = false;
+function typeLoop() {
+  const current = lines[lineIndex];
+  if (!deleting) {
+    charIndex++;
+    typedEl.textContent = current.slice(0, charIndex);
+    if (charIndex === current.length) {
+      deleting = true;
+      setTimeout(typeLoop, 1600);
+      return;
+    }
+  } else {
+    charIndex--;
+    typedEl.textContent = current.slice(0, charIndex);
+    if (charIndex === 0) {
+      deleting = false;
+      lineIndex = (lineIndex + 1) % lines.length;
+    }
+  }
+  setTimeout(typeLoop, deleting ? 20 : 38);
+}
+typeLoop();
+
+// tilt effect on hero photo
+const tiltEl = document.getElementById('tilt-photo');
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if (tiltEl && !prefersReducedMotion) {
+  tiltEl.addEventListener('mousemove', (e) => {
+    const rect = tiltEl.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+    tiltEl.style.transform = `perspective(900px) rotateY(${x * 12}deg) rotateX(${-y * 12}deg)`;
+  });
+  tiltEl.addEventListener('mouseleave', () => {
+    tiltEl.style.transform = 'perspective(900px) rotateY(0) rotateX(0)';
+  });
 }
 
-function openLightbox(src) {
-    const box = document.createElement('div');
-    box.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);z-index:9999;display:flex;align-items:center;justify-content:center;cursor:zoom-out;';
-    box.innerHTML = `<img src="${src}" style="max-width:90%;max-height:90%;border-radius:8px;box-shadow:0 0 30px rgba(160,32,240,0.5);">`;
-    box.onclick = () => box.remove();
-    document.body.appendChild(box);
-}
+// portfolio card tilt + dot pagination
+document.querySelectorAll('.pcard').forEach(card => {
+  if (!prefersReducedMotion) {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+      card.style.transform = `perspective(1200px) rotateY(${x * 4}deg) rotateX(${-y * 4}deg) translateY(-2px)`;
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = card.classList.contains('in-view') ? 'translateY(0)' : '';
+    });
+  }
+
+  const imgs = card.querySelectorAll('.pcard-media img');
+  const dotsWrap = card.querySelector('.dots');
+  if (imgs.length > 1 && dotsWrap) {
+    imgs.forEach((img, i) => {
+      const dot = document.createElement('button');
+      if (i === 0) dot.classList.add('active');
+      dot.addEventListener('click', () => {
+        imgs.forEach(im => im.classList.remove('active'));
+        img.classList.add('active');
+        dotsWrap.querySelectorAll('button').forEach(d => d.classList.remove('active'));
+        dot.classList.add('active');
+      });
+      dotsWrap.appendChild(dot);
+    });
+  }
+});
