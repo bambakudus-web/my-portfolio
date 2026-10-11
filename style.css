@@ -139,7 +139,7 @@ section{padding:110px 0;}
 .pcard-body h3{font-size:1.25rem;}
 .badge{font-family:var(--font-mono);font-size:0.65rem;padding:3px 9px;border-radius:20px;letter-spacing:0.03em;white-space:nowrap;}
 .badge.live{background:rgba(52,211,153,0.12);color:var(--green);border:1px solid rgba(52,211,153,0.3);}
-.badge.dev{background:rgba(139,92,246,0.14);color:var(--accent-2);border:1px solid rgba(139,92,246,0.35);}
+.badge.done{background:rgba(139,92,246,0.14);color:var(--accent-2);border:1px solid rgba(139,92,246,0.35);}
 .badge.pilot{background:rgba(245,185,61,0.12);color:var(--amber);border:1px solid rgba(245,185,61,0.3);}
 .pcard-body p{color:var(--text-dim);font-size:0.9rem;margin-bottom:14px;}
 .tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px;}
