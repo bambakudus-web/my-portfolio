@@ -2,22 +2,33 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0A0714">
+<meta name="color-scheme" content="dark">
 <title>DevKelly | Harruna Abdul Kudus</title>
 <meta name="description" content="DevKelly (Harruna Abdul Kudus) — full-stack developer in Kumasi, Ghana. Building live SaaS products, marketplaces, and offline-first systems with Next.js, Node.js, and Paystack.">
 
+<!--
+  SHARE PREVIEW: when you buy or choose a domain, replace BOTH "https://your-domain-here.com/" addresses below
+  (og:url, og:image) and the twitter:image address with your real site address. Crawlers need full addresses here.
+-->
 <!-- Open Graph -->
 <meta property="og:type" content="website">
+<meta property="og:site_name" content="DevKelly">
 <meta property="og:title" content="DevKelly | Harruna Abdul Kudus — Full-Stack Developer">
 <meta property="og:description" content="Full-stack developer in Kumasi, Ghana. Building live SaaS products, marketplaces, and offline-first systems with Next.js, Node.js, and Paystack.">
 <meta property="og:url" content="https://your-domain-here.com/">
 <meta property="og:image" content="https://your-domain-here.com/images/portfolio-preview.jpg">
+<meta property="og:image:width" content="1670">
+<meta property="og:image:height" content="835">
+<meta property="og:image:alt" content="DevKelly portfolio: full-stack developer in Kumasi, Ghana">
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="DevKelly | Harruna Abdul Kudus — Full-Stack Developer">
 <meta name="twitter:description" content="Full-stack developer in Kumasi, Ghana. Building live SaaS products, marketplaces, and offline-first systems with Next.js, Node.js, and Paystack.">
 <meta name="twitter:image" content="https://your-domain-here.com/images/portfolio-preview.jpg">
+<meta name="twitter:image:alt" content="DevKelly portfolio: full-stack developer in Kumasi, Ghana">
 
 <!-- Favicon: purple "DK" monogram, inline so no extra file is needed -->
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230A0714'/%3E%3Ctext x='32' y='42' font-family='Arial,sans-serif' font-size='26' font-weight='700' text-anchor='middle' fill='%238B5CF6'%3EDK%3C/text%3E%3C/svg%3E">
@@ -26,40 +37,57 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500&display=swap">
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
 <link rel="stylesheet" href="style.css">
+<!-- Marks that JavaScript is running, so the fade-in effects never hide content when it is not -->
+<script>document.documentElement.classList.add('js')</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Harruna Abdul Kudus",
+  "alternateName": "DevKelly",
+  "jobTitle": "Full-Stack Developer",
+  "description": "Full-stack developer in Kumasi, Ghana, building SaaS products, marketplaces and business systems with Next.js, Node.js and MySQL/PostgreSQL.",
+  "address": { "@type": "PostalAddress", "addressLocality": "Kumasi", "addressCountry": "GH" },
+  "alumniOf": "Kumasi Technical University",
+  "sameAs": [
+    "https://github.com/bambakudus-web",
+    "https://www.linkedin.com/in/abdul-kudus-harruna-4a91672b2",
+    "https://www.instagram.com/7starmade7"
+  ]
+}
+</script>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
 <header>
   <div class="nav-inner">
-    <div class="logo"><span class="dev-part">Dev</span><span class="kelly-part">Kelly</span></div>
-    <div class="menu-icon" id="menu-icon"><i class="fa-solid fa-bars"></i></div>
-    <ul class="navlist" id="navlist">
+    <a class="logo" href="#home" aria-label="DevKelly, back to top"><span class="dev-part">Dev</span><span class="kelly-part">Kelly</span></a>
+    <nav aria-label="Main"><ul class="navlist" id="navlist">
       <li><a href="#home">Home</a></li>
       <li><a href="#portfolio">Portfolio</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#services">Services</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#contact" class="contact-btn">Contact</a></li>
-    </ul>
+    </ul></nav>
+    <button type="button" class="menu-icon" id="menu-icon" aria-label="Open menu" aria-expanded="false" aria-controls="navlist"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
   </div>
 </header>
 
+<main id="main">
 <section id="home" class="hero">
   <div class="wrapper hero-grid">
     <div class="hero-copy">
       <span class="status-pill"><span class="status-dot"></span>Available for freelance work</span>
       <h1>Engineering the Future <span class="accent-word">One System</span> at a Time.</h1>
       <p class="lede">
-        Building software that scales.
-        Designing systems that last.
-        Solving problems others avoid.
-        Frontend. Backend. Databases. Cloud. AI.
-        From concept to production, I turn ambitious ideas into world-class digital experiences.
+        I design, build and ship full-stack products for real businesses, from the database to the interface to the live deployment. Next.js, Node.js, MySQL and PostgreSQL, with SMS and mobile-money payments wired in for Ghana.
       </p>
       <div class="hero-ctas">
-        <a href="#portfolio" class="btn-primary">View my work <i class="fa-solid fa-arrow-right"></i></a>
-        <a href="files/cv.pdf" target="_blank" class="btn-ghost">Download CV <i class="fa-solid fa-download"></i></a>
+        <a href="#portfolio" class="btn-primary">View my work <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+        <a href="files/cv.pdf" target="_blank" rel="noopener" class="btn-ghost">Download CV <i class="fa-solid fa-download" aria-hidden="true"></i></a>
       </div>
       <div class="term-strip">
         <span class="prompt">$</span> <span id="typed-line"></span><span class="cursor"></span>
@@ -71,41 +99,41 @@
         <div class="blob blob-1"></div>
         <div class="blob blob-2"></div>
         <div class="photo-frame" id="tilt-photo">
-          <img src="images/IMG_0185 (2).jpg" alt="Harruna Abdul Kudus">
+          <img src="images/IMG_0185 (2).jpg" alt="Harruna Abdul Kudus" width="778" height="1184" fetchpriority="high" decoding="async">
         </div>
-        <div class="float-chip chip-1"><strong>6+</strong>SaaS products shipped</div>
+        <div class="float-chip chip-1"><strong>6+</strong>products shipped</div>
       </div>
       <div class="social-links-vertical">
-        <a href="https://www.linkedin.com/in/abdul-kudus-harruna-4a91672b2" target="_blank"><i class="fab fa-linkedin"></i></a>
-        <a href="https://github.com/bambakudus-web" target="_blank"><i class="fab fa-github"></i></a>
-        <a href="https://www.instagram.com/7starmade7" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/abdul-kudus-harruna-4a91672b2" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+        <a href="https://github.com/bambakudus-web" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
+        <a href="https://www.instagram.com/7starmade7" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
       </div>
     </div>
   </div>
 
   <div class="marquee-wrap">
-    <div class="marquee-track">
-      <span><i class="fa-solid fa-code"></i>Next.js</span>
-      <span><i class="fa-solid fa-code"></i>React</span>
-      <span><i class="fa-solid fa-code"></i>TypeScript</span>
-      <span><i class="fa-solid fa-code"></i>Node.js / Express</span>
-      <span><i class="fa-solid fa-code"></i>Prisma</span>
-      <span><i class="fa-solid fa-code"></i>PostgreSQL</span>
-      <span><i class="fa-solid fa-code"></i>MySQL</span>
-      <span><i class="fa-solid fa-code"></i>PHP</span>
-      <span><i class="fa-solid fa-code"></i>Tailwind CSS</span>
-      <span><i class="fa-solid fa-code"></i>Railway</span>
+    <div class="marquee-track" aria-hidden="true">
+      <span><i class="fa-solid fa-code" aria-hidden="true"></i>Next.js</span>
+      <span><i class="fa-solid fa-code" aria-hidden="true"></i>React</span>
+      <span><i class="fa-solid fa-code" aria-hidden="true"></i>TypeScript</span>
+      <span><i class="fa-solid fa-code" aria-hidden="true"></i>Node.js / Express</span>
+      <span><i class="fa-solid fa-code" aria-hidden="true"></i>Prisma</span>
+      <span><i class="fa-solid fa-code" aria-hidden="true"></i>PostgreSQL</span>
+      <span><i class="fa-solid fa-code" aria-hidden="true"></i>MySQL</span>
+      <span><i class="fa-solid fa-code" aria-hidden="true"></i>PHP</span>
+      <span><i class="fa-solid fa-code" aria-hidden="true"></i>Tailwind CSS</span>
+      <span><i class="fa-solid fa-code" aria-hidden="true"></i>Railway</span>
       <!-- duplicate for seamless loop -->
-      <span><i class="fa-solid fa-code"></i>Next.js</span>
-      <span><i class="fa-solid fa-code"></i>React</span>
-      <span><i class="fa-solid fa-code"></i>TypeScript</span>
-      <span><i class="fa-solid fa-code"></i>Node.js / Express</span>
-      <span><i class="fa-solid fa-code"></i>Prisma</span>
-      <span><i class="fa-solid fa-code"></i>PostgreSQL</span>
-      <span><i class="fa-solid fa-code"></i>MySQL</span>
-      <span><i class="fa-solid fa-code"></i>PHP</span>
-      <span><i class="fa-solid fa-code"></i>Tailwind CSS</span>
-      <span><i class="fa-solid fa-code"></i>Railway</span>
+      <span><i class="fa-solid fa-code" aria-hidden="true"></i>Next.js</span>
+      <span><i class="fa-solid fa-code" aria-hidden="true"></i>React</span>
+      <span><i class="fa-solid fa-code" aria-hidden="true"></i>TypeScript</span>
+      <span><i class="fa-solid fa-code" aria-hidden="true"></i>Node.js / Express</span>
+      <span><i class="fa-solid fa-code" aria-hidden="true"></i>Prisma</span>
+      <span><i class="fa-solid fa-code" aria-hidden="true"></i>PostgreSQL</span>
+      <span><i class="fa-solid fa-code" aria-hidden="true"></i>MySQL</span>
+      <span><i class="fa-solid fa-code" aria-hidden="true"></i>PHP</span>
+      <span><i class="fa-solid fa-code" aria-hidden="true"></i>Tailwind CSS</span>
+      <span><i class="fa-solid fa-code" aria-hidden="true"></i>Railway</span>
     </div>
   </div>
 </section>
@@ -122,17 +150,17 @@
       <div class="pcard">
         <div class="browser-bar"><span class="bdot r"></span><span class="bdot y"></span><span class="bdot g"></span><span class="burl">promptforgeus.com</span></div>
         <div class="pcard-media">
-          <img src="images/1.png" class="active" alt="PromptForge homepage">
-          <img src="images/2.png" alt="PromptForge dashboard">
-          <img src="images/3.png" alt="PromptForge prompt field">
-          <img src="images/4.png" alt="PromptForge explore section">
+          <img loading="lazy" decoding="async" width="1880" height="890" src="images/1.png" class="active" alt="PromptForge homepage">
+          <img loading="lazy" decoding="async" width="1880" height="890" src="images/2.png" alt="PromptForge dashboard">
+          <img loading="lazy" decoding="async" width="1880" height="890" src="images/3.png" alt="PromptForge prompt field">
+          <img loading="lazy" decoding="async" width="1880" height="890" src="images/4.png" alt="PromptForge explore section">
         </div>
         <div class="dots"></div>
         <div class="pcard-body">
           <div class="pcard-top"><h3>PromptForge</h3><span class="badge live">Live</span></div>
           <p>Interviews professionals about their goal, then generates a structured, scored prompt through a two-stage self-critique pipeline. Live with paying users on a GHS 60/month tier.</p>
           <div class="tags"><span>Next.js 16</span><span>Prisma</span><span>PostgreSQL</span><span>Claude API</span><span>Paystack</span></div>
-          <a href="https://promptforgeus.com/" target="_blank" class="pcard-link">View project <i class="fa-solid fa-arrow-right"></i></a>
+          <a href="https://promptforgeus.com/" target="_blank" rel="noopener noreferrer" class="pcard-link">View project <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
         </div>
       </div>
 
@@ -140,35 +168,90 @@
       <div class="pcard">
         <div class="browser-bar"><span class="bdot r"></span><span class="bdot y"></span><span class="bdot g"></span><span class="burl">kellylodge-production.up.railway.app</span></div>
         <div class="pcard-media">
-          <img src="images/5.png" class="active" alt="Kellylodge homepage">
-          <img src="images/6.png" alt="List of hostels">
-          <img src="images/7.png" alt="Hostel details">
-          <img src="images/8.png" alt="Receipt">
+          <img loading="lazy" decoding="async" width="1880" height="890" src="images/5.png" class="active" alt="Kellylodge homepage">
+          <img loading="lazy" decoding="async" width="1880" height="890" src="images/6.png" alt="List of hostels">
+          <img loading="lazy" decoding="async" width="1880" height="890" src="images/7.png" alt="Hostel details">
+          <img loading="lazy" decoding="async" width="1880" height="890" src="images/8.png" alt="Receipt">
         </div>
         <div class="dots"></div>
         <div class="pcard-body">
           <div class="pcard-top"><h3>Kellylodge</h3><span class="badge live">Live</span></div>
           <p>Hostel listing, booking, and payment platform for KsTU students. Owners post per-room listings and get paid automatically through Paystack split payouts as rooms are booked.</p>
           <div class="tags"><span>Node.js</span><span>Socket.io</span><span>Paystack</span><span>Arkesel SMS</span></div>
-          <a href="https://kellylodge-production.up.railway.app/" target="_blank" class="pcard-link">View project <i class="fa-solid fa-arrow-right"></i></a>
+          <a href="https://kellylodge-production.up.railway.app/" target="_blank" rel="noopener noreferrer" class="pcard-link">View project <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
         </div>
       </div>
 
-      <!-- MenuMuse -->
+      <!-- CampusCart -->
       <div class="pcard">
-        <div class="browser-bar"><span class="bdot r"></span><span class="bdot y"></span><span class="bdot g"></span><span class="burl">menumuse-v2-production.up.railway.app</span></div>
+        <div class="browser-bar"><span class="bdot r"></span><span class="bdot y"></span><span class="bdot g"></span><span class="burl">brilliant-tenderness-production-b963.up.railway.app</span></div>
         <div class="pcard-media">
-          <img src="images/9.png" class="active" alt="MenuMuse homepage">
-          <img src="images/10.png" alt="MenuMuse content generator">
-          <img src="images/11.png" alt="MenuMuse content library">
-          <img src="images/12.png" alt="MenuMuse pricing">
+          <!--
+            ADD YOUR SCREENSHOTS HERE. Delete the grey "mock-screen" block below and put your images in its place, for example:
+              <img src="images/campuscart-1.png" class="active" alt="CampusCart homepage" loading="lazy" decoding="async" width="1880" height="890">
+              <img src="images/campuscart-2.png" alt="CampusCart listing" loading="lazy" decoding="async" width="1880" height="890">
+            The first image needs class="active". The little dots under the picture appear by themselves when there are 2 or more.
+          -->
+          <div class="mock-screen" role="img" aria-label="Screenshots coming soon">
+            <div class="mock-bar"></div>
+            <div class="mock-row"><div class="mock-block"></div><div class="mock-block"></div><div class="mock-block"></div></div>
+            <span class="mock-label">Screenshots coming soon</span>
+          </div>
         </div>
         <div class="dots"></div>
         <div class="pcard-body">
-          <div class="pcard-top"><h3>MenuMuse</h3><span class="badge live">Live</span></div>
-          <p>AI marketing copy generator for restaurant owners: Instagram captions, TikTok content, menu descriptions, promo emails, and Google ads, tuned for a Ghana-first audience.</p>
-          <div class="tags"><span>Next.js</span><span>Claude API</span><span>Paystack</span><span>Google OAuth</span></div>
-          <a href="https://menumuse-v2-production.up.railway.app/" target="_blank" class="pcard-link">View project <i class="fa-solid fa-arrow-right"></i></a>
+          <div class="pcard-top"><h3>CampusCart</h3><span class="badge live">Live</span></div>
+          <p>Buy, sell and trade marketplace for KsTU students. Multi-photo listings with search and category filters, real-time buyer and seller chat, and matching REST and GraphQL APIs. Built through the Codveda full-stack internship.</p>
+          <div class="tags"><span>React</span><span>Node.js</span><span>MySQL</span><span>Socket.io</span><span>GraphQL</span></div>
+          <a href="https://brilliant-tenderness-production-b963.up.railway.app/" target="_blank" rel="noopener noreferrer" class="pcard-link">View project <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <!-- ARIZONA GBC print shop system -->
+      <div class="pcard">
+        <div class="browser-bar"><span class="bdot r"></span><span class="bdot y"></span><span class="bdot g"></span><span class="burl">app.arizonagbc.com</span></div>
+        <div class="pcard-media">
+          <!--
+            ADD YOUR SCREENSHOTS HERE (dashboard, a job, an invoice or receipt). Delete the grey "mock-screen" block and use, for example:
+              <img src="images/arizona-gbc-1.png" class="active" alt="ARIZONA GBC dashboard" loading="lazy" decoding="async" width="1880" height="890">
+              <img src="images/arizona-gbc-2.png" alt="ARIZONA GBC invoice" loading="lazy" decoding="async" width="1880" height="890">
+            Do not show real customer names, phone numbers or amounts in the screenshots.
+          -->
+          <div class="mock-screen" role="img" aria-label="Screenshots coming soon">
+            <div class="mock-bar"></div>
+            <div class="mock-row"><div class="mock-block"></div><div class="mock-block"></div><div class="mock-block"></div></div>
+            <span class="mock-label">Screenshots coming soon</span>
+          </div>
+        </div>
+        <div class="dots"></div>
+        <div class="pcard-body">
+          <div class="pcard-top"><h3>ARIZONA GBC</h3><span class="badge live">Live</span></div>
+          <p>Job-tracking system built for a print shop in Salaga. Staff log jobs, take cash or MoMo payments and issue receipts and invoices with QR verification, while customers get SMS updates and can track their job online. Includes roles, reports, stock and profit tracking.</p>
+          <div class="tags"><span>Next.js 15</span><span>Prisma</span><span>MySQL</span><span>Arkesel SMS</span><span>Railway</span></div>
+          <span class="pcard-link pcard-note">Private system, demo on request</span>
+        </div>
+      </div>
+
+      <!-- CA Analytics -->
+      <div class="pcard">
+        <div class="browser-bar"><span class="bdot r"></span><span class="bdot y"></span><span class="bdot g"></span><span class="burl">ca-analytics.local</span></div>
+        <div class="pcard-media">
+          <!--
+            ADD YOUR SCREENSHOTS HERE. Delete the grey "mock-screen" block and use, for example:
+              <img src="images/ca-analytics-1.png" class="active" alt="CA Analytics sign-in" loading="lazy" decoding="async" width="1880" height="890">
+          -->
+          <div class="mock-screen" role="img" aria-label="Screenshots coming soon">
+            <div class="mock-bar"></div>
+            <div class="mock-row"><div class="mock-block"></div><div class="mock-block"></div><div class="mock-block"></div></div>
+            <span class="mock-label">Screenshots coming soon</span>
+          </div>
+        </div>
+        <div class="dots"></div>
+        <div class="pcard-body">
+          <div class="pcard-top"><h3>CA Analytics</h3><span class="badge dev">In development</span></div>
+          <p>Continuous-assessment analytics for lecturers, students and admins at KsTU. A risk engine works out the CA percentage so far, the exam score needed to pass and the trend across assessments, so struggling students can be flagged early. HND mini project.</p>
+          <div class="tags"><span>Node.js</span><span>Express</span><span>EJS</span><span>MySQL</span><span>Role-based access</span></div>
+          <span class="pcard-link pcard-note">In development</span>
         </div>
       </div>
 
@@ -176,38 +259,39 @@
       <div class="pcard">
         <div class="browser-bar"><span class="bdot r"></span><span class="bdot y"></span><span class="bdot g"></span><span class="burl">kellypos.local</span></div>
         <div class="pcard-media">
-          <div class="mock-screen">
+          <div class="mock-screen" role="img" aria-label="Screenshots coming soon">
             <div class="mock-bar"></div>
             <div class="mock-row">
               <div class="mock-block"></div>
               <div class="mock-block"></div>
               <div class="mock-block"></div>
             </div>
+            <span class="mock-label">Screenshots coming soon</span>
           </div>
         </div>
         <div class="pcard-body">
           <div class="pcard-top"><h3>KellyPOS</h3><span class="badge pilot">In pilot</span></div>
           <p>Offline-first point of sale built for small retail shops in Ghana. Works fully offline and syncs when back online, with cash/MoMo checkout, RBAC, shift reconciliation, and audit logging. Piloting live at Arizona Global Business Centre.</p>
           <div class="tags"><span>Next.js 15</span><span>Prisma</span><span>Dexie.js</span><span>Tailwind CSS</span></div>
-          <span class="pcard-link" style="color:var(--text-dim);cursor:default;">Case study in progress</span>
+          <span class="pcard-link pcard-note">Case study in progress</span>
         </div>
       </div>
 
     </div>
-    <div class="more-cta"><a href="https://github.com/bambakudus-web" target="_blank">See more on GitHub, @bambakudus-web</a></div>
+    <div class="more-cta"><a href="https://github.com/bambakudus-web" target="_blank" rel="noopener noreferrer">See more on GitHub, @bambakudus-web</a></div>
   </div>
 </section>
 
 <section id="about">
   <div class="wrapper about-grid">
     <div class="about-photo">
-      <img src="images/IMG_0185 (2).jpg" alt="Harruna Abdul Kudus">
+      <img src="images/IMG_0185 (2).jpg" alt="Harruna Abdul Kudus" width="778" height="1184" loading="lazy" decoding="async">
     </div>
     <div class="about-text">
       <span class="eyebrow">whoami</span>
-      <h2 class="section-title" style="margin-bottom:18px;">About me</h2>
+      <h2 class="section-title title-tight">About me</h2>
       <p>I'm Harruna Abdul Kudus, working as DevKelly. I'm a Computer Science student at Kumasi Technical University, and a solo full-stack developer who takes SaaS products from idea to paying users.</p>
-      <p>Most of what I build solves a real problem for a real business first: KellyPOS runs a print shop's checkout offline, Kellylodge gets students into hostel rooms without the WhatsApp back-and-forth, PromptForge and MenuMuse turn AI into something non-technical people can actually use.</p>
+      <p>Most of what I build solves a real problem for a real business first: ARIZONA GBC runs a print shop's jobs, payments and customer SMS, Kellylodge gets students into hostel rooms without the WhatsApp back-and-forth, CampusCart gives KsTU students a safe place to buy and sell, and PromptForge turns AI into something non-technical people can actually use.</p>
       <p>I work end to end: database design, backend, frontend, and deployment, usually from a terminal in WSL2.</p>
       <div class="chip-row">
         <span>Solo full-stack developer</span>
@@ -226,33 +310,33 @@
     </div>
     <div class="services-grid">
       <div class="service-card">
-        <i class="fa-solid fa-layer-group"></i>
+        <i class="fa-solid fa-layer-group" aria-hidden="true"></i>
         <h3>Full-Stack SaaS Development</h3>
         <p>End-to-end products: Next.js or React front end, Node.js or PHP back end, Prisma/PostgreSQL or MySQL, deployed and monitored in production.</p>
       </div>
       <div class="service-card">
-        <i class="fa-solid fa-wifi"></i>
-        <h3>Offline-First & PWA Systems</h3>
+        <i class="fa-solid fa-wifi" aria-hidden="true"></i>
+        <h3>Offline-First &amp; PWA Systems</h3>
         <p>Apps that keep working without a stable connection, using IndexedDB/Dexie.js sync patterns, built for the reality of running a business in Ghana.</p>
       </div>
       <div class="service-card">
-        <i class="fa-solid fa-money-bill-transfer"></i>
-        <h3>API & Payment Integration</h3>
+        <i class="fa-solid fa-money-bill-transfer" aria-hidden="true"></i>
+        <h3>API &amp; Payment Integration</h3>
         <p>Auth, role-based access control, audit logging, and payment rails like Paystack and Mobile Money, wired up securely and tested.</p>
       </div>
       <div class="service-card">
-        <i class="fa-solid fa-mobile"></i>
-        <h3>Mobile Apps</h3>
-        <p>Building cross-platform mobile applications with React Native or Flutter, optimized for performance and user experience.</p>
+        <i class="fa-solid fa-mobile" aria-hidden="true"></i>
+        <h3>Android Apps</h3>
+        <p>Native Android apps in Kotlin and Jetpack Compose, with the backend and AI features they need, built to feel fast on the phones people actually use.</p>
       </div>
       <div class="service-card">
-        <i class="fa-solid fa-globe"></i>
-        <h3>Website Design & Development</h3>
+        <i class="fa-solid fa-globe" aria-hidden="true"></i>
+        <h3>Website Design &amp; Development</h3>
         <p>Creating responsive and user-friendly websites with modern design principles and best practices.</p>
       </div>
       <div class="service-card">
-        <i class="fa-solid fa-database"></i>
-        <h3>Database Design & Optimization</h3>
+        <i class="fa-solid fa-database" aria-hidden="true"></i>
+        <h3>Database Design &amp; Optimization</h3>
         <p>Designing efficient database schemas, optimizing queries, and ensuring data integrity for scalable applications.</p>
       </div>
     </div>
@@ -268,9 +352,10 @@
     <div class="stack-card">
       <div><span class="punc">{</span></div>
       <div class="stack-line"><span class="key">"frontend"</span><span class="punc">:</span> <span class="val">["Next.js", "React", "Angular", "TypeScript", "Tailwind CSS"]</span><span class="punc">,</span></div>
-      <div class="stack-line"><span class="key">"backend"</span><span class="punc">:</span> <span class="val">["Node.js", "Express", "PHP", "Laravel"]</span><span class="punc">,</span></div>
+      <div class="stack-line"><span class="key">"backend"</span><span class="punc">:</span> <span class="val">["Node.js", "Express", "PHP", "Laravel", "Socket.io", "GraphQL"]</span><span class="punc">,</span></div>
+      <div class="stack-line"><span class="key">"mobile"</span><span class="punc">:</span> <span class="val">["Kotlin", "Jetpack Compose"]</span><span class="punc">,</span></div>
       <div class="stack-line"><span class="key">"database"</span><span class="punc">:</span> <span class="val">["PostgreSQL", "MySQL", "MongoDB", "Prisma", "Dexie.js"]</span><span class="punc">,</span></div>
-      <div class="stack-line"><span class="key">"tools"</span><span class="punc">:</span> <span class="val">["Railway", "GitHub", "WSL2 / Linux", "AWS"]</span></div>
+      <div class="stack-line"><span class="key">"tools"</span><span class="punc">:</span> <span class="val">["Railway", "Vercel", "GitHub", "WSL2 / Linux", "AWS"]</span></div>
       <div><span class="punc">}</span></div>
     </div>
   </div>
@@ -278,24 +363,28 @@
 
 <section id="contact">
   <div class="wrapper contact-inner">
-    <span class="eyebrow" style="justify-content:center;display:inline-block;">send_message</span>
+    <span class="eyebrow eyebrow-center">send_message</span>
     <h2 class="section-title">Get in touch</h2>
     <p>Have a project in mind, or want to talk about how KellyPOS could work for your business? Send a message.</p>
     <form class="contact-form" action="https://formspree.io/f/mjgyawyw" method="POST" id="contactForm">
+      <input type="hidden" name="_subject" value="New message from your portfolio">
+      <!-- Spam trap: people never see this, bots fill it in -->
+      <div class="hp-field" aria-hidden="true"><label for="website">Leave this empty</label><input type="text" id="website" name="_gotcha" tabindex="-1" autocomplete="off"></div>
       <label for="name">Name</label>
-      <input type="text" id="name" name="name" placeholder="Your name" required>
+      <input type="text" id="name" name="name" placeholder="Your name" autocomplete="name" required>
       <label for="email">Email</label>
-      <input type="email" id="email" name="_replyto" placeholder="you@example.com" required>
+      <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" required>
       <label for="message">Message</label>
       <textarea id="message" name="message" placeholder="What are you building?" required></textarea>
-      <button type="submit" class="btn-primary" style="justify-content:center;">Send message <i class="fa-solid fa-paper-plane"></i></button>
+      <button type="submit" class="btn-primary btn-block">Send message <i class="fa-solid fa-paper-plane" aria-hidden="true"></i></button>
       <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
     </form>
   </div>
 </section>
+</main>
 
 <footer>
-  <p>Copyright ©️ 2026 Abdul Kudus | Code by Abdul</p>
+  <p>© 2026 Harruna Abdul Kudus (DevKelly). Designed and coded by me.</p>
 </footer>
 
 <script src="script.js"></script>

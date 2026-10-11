@@ -1,65 +1,102 @@
-// mobile nav
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+// ---------- mobile nav ----------
 const menuIcon = document.getElementById('menu-icon');
 const navlist = document.getElementById('navlist');
-menuIcon.onclick = () => {
-  navlist.classList.toggle('open');
+
+function setMenu(open) {
+  navlist.classList.toggle('open', open);
+  document.body.classList.toggle('nav-open', open);
+  menuIcon.setAttribute('aria-expanded', String(open));
+  menuIcon.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
   const icon = menuIcon.querySelector('i');
-  icon.classList.toggle('fa-bars');
-  icon.classList.toggle('fa-xmark');
-};
-navlist.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => {
-    navlist.classList.remove('open');
-    menuIcon.querySelector('i').classList.replace('fa-xmark', 'fa-bars');
-  });
+  icon.classList.toggle('fa-bars', !open);
+  icon.classList.toggle('fa-xmark', open);
+}
+menuIcon.addEventListener('click', () => setMenu(!navlist.classList.contains('open')));
+navlist.querySelectorAll('a').forEach(link => link.addEventListener('click', () => setMenu(false)));
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && navlist.classList.contains('open')) { setMenu(false); menuIcon.focus(); }
 });
+// tapping outside the open menu closes it
+document.addEventListener('click', (e) => {
+  if (navlist.classList.contains('open') && !navlist.contains(e.target) && !menuIcon.contains(e.target)) setMenu(false);
+});
+// rotating a phone or resizing to desktop must not leave the page locked
+window.addEventListener('resize', () => { if (window.innerWidth > 768) setMenu(false); });
 
-// scroll reveal
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry, i) => {
-    if (entry.isIntersecting) {
-      entry.target.style.transitionDelay = (i % 4) * 0.08 + 's';
-      entry.target.classList.add('in-view');
-      observer.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.15 });
-document.querySelectorAll('.pcard').forEach(el => observer.observe(el));
+// ---------- highlight the current section in the nav ----------
+const navLinks = [...navlist.querySelectorAll('a[href^="#"]')];
+const sections = navLinks.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+if ('IntersectionObserver' in window && sections.length) {
+  const spy = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + entry.target.id));
+    });
+  }, { rootMargin: '-45% 0px -50% 0px' });
+  sections.forEach(sec => spy.observe(sec));
+}
 
-// terminal typing strip
+// ---------- scroll reveal (project cards) ----------
+const cards = document.querySelectorAll('.pcard');
+if ('IntersectionObserver' in window) {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        entry.target.style.transitionDelay = (i % 4) * 0.08 + 's';
+        entry.target.classList.add('in-view');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  cards.forEach(el => observer.observe(el));
+  // safety net: never leave a card hidden if the observer is slow or blocked
+  setTimeout(() => cards.forEach(el => el.classList.add('in-view')), 3000);
+} else {
+  cards.forEach(el => el.classList.add('in-view'));
+}
+
+// ---------- terminal typing strip ----------
 const lines = [
   'whoami  ->  full-stack developer, Kumasi, Ghana',
   'status  ->  open for freelance work',
   'focus   ->  Creating scalable software with uncompromising quality.'
 ];
 const typedEl = document.getElementById('typed-line');
-let lineIndex = 0, charIndex = 0, deleting = false;
-function typeLoop() {
-  const current = lines[lineIndex];
-  if (!deleting) {
-    charIndex++;
-    typedEl.textContent = current.slice(0, charIndex);
-    if (charIndex === current.length) {
-      deleting = true;
-      setTimeout(typeLoop, 1600);
-      return;
-    }
+if (typedEl) {
+  if (prefersReducedMotion) {
+    typedEl.textContent = lines[0];
   } else {
-    charIndex--;
-    typedEl.textContent = current.slice(0, charIndex);
-    if (charIndex === 0) {
-      deleting = false;
-      lineIndex = (lineIndex + 1) % lines.length;
-    }
+    let lineIndex = 0, charIndex = 0, deleting = false;
+    const typeLoop = () => {
+      const current = lines[lineIndex];
+      if (!deleting) {
+        charIndex++;
+        typedEl.textContent = current.slice(0, charIndex);
+        if (charIndex === current.length) {
+          deleting = true;
+          setTimeout(typeLoop, 1600);
+          return;
+        }
+      } else {
+        charIndex--;
+        typedEl.textContent = current.slice(0, charIndex);
+        if (charIndex === 0) {
+          deleting = false;
+          lineIndex = (lineIndex + 1) % lines.length;
+        }
+      }
+      setTimeout(typeLoop, deleting ? 20 : 38);
+    };
+    typeLoop();
   }
-  setTimeout(typeLoop, deleting ? 20 : 38);
 }
-typeLoop();
 
-// tilt effect on hero photo
+// ---------- tilt effects (mouse only, never on touch screens) ----------
 const tiltEl = document.getElementById('tilt-photo');
-const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-if (tiltEl && !prefersReducedMotion) {
+if (tiltEl && !prefersReducedMotion && canHover) {
   tiltEl.addEventListener('mousemove', (e) => {
     const rect = tiltEl.getBoundingClientRect();
     const x = (e.clientX - rect.left) / rect.width - 0.5;
@@ -71,47 +108,9 @@ if (tiltEl && !prefersReducedMotion) {
   });
 }
 
-// contact form — AJAX submit so people stay on the branded page
-const contactForm = document.getElementById('contactForm');
-if (contactForm) {
-  const statusEl = document.getElementById('formStatus');
-  const submitBtn = contactForm.querySelector('button[type="submit"]');
-  const originalBtnHTML = submitBtn.innerHTML;
-
-  contactForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    statusEl.textContent = '';
-    statusEl.className = 'form-status';
-    submitBtn.disabled = true;
-    submitBtn.innerHTML = 'Sending...';
-
-    try {
-      const response = await fetch(contactForm.action, {
-        method: 'POST',
-        body: new FormData(contactForm),
-        headers: { 'Accept': 'application/json' }
-      });
-
-      if (response.ok) {
-        statusEl.textContent = "Thanks — your message is in. I'll get back to you soon.";
-        statusEl.classList.add('success');
-        contactForm.reset();
-      } else {
-        statusEl.textContent = "Something went wrong sending that. Try again, or email me directly.";
-        statusEl.classList.add('error');
-      }
-    } catch (err) {
-      statusEl.textContent = "Network error — check your connection and try again.";
-      statusEl.classList.add('error');
-    } finally {
-      submitBtn.disabled = false;
-      submitBtn.innerHTML = originalBtnHTML;
-    }
-  });
-}
-// portfolio card tilt + dot pagination
-document.querySelectorAll('.pcard').forEach(card => {
-  if (!prefersReducedMotion) {
+// ---------- project cards: tilt + screenshot dots ----------
+cards.forEach(card => {
+  if (!prefersReducedMotion && canHover) {
     card.addEventListener('mousemove', (e) => {
       const rect = card.getBoundingClientRect();
       const x = (e.clientX - rect.left) / rect.width - 0.5;
@@ -128,6 +127,8 @@ document.querySelectorAll('.pcard').forEach(card => {
   if (imgs.length > 1 && dotsWrap) {
     imgs.forEach((img, i) => {
       const dot = document.createElement('button');
+      dot.type = 'button';
+      dot.setAttribute('aria-label', `Show screenshot ${i + 1} of ${imgs.length}`);
       if (i === 0) dot.classList.add('active');
       dot.addEventListener('click', () => {
         imgs.forEach(im => im.classList.remove('active'));
@@ -139,3 +140,42 @@ document.querySelectorAll('.pcard').forEach(card => {
     });
   }
 });
+
+// ---------- contact form: send in the background so people stay on the page ----------
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+  const statusEl = document.getElementById('formStatus');
+  const submitBtn = contactForm.querySelector('button[type="submit"]');
+  const originalBtnHTML = submitBtn.innerHTML;
+
+  contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    statusEl.textContent = '';
+    statusEl.className = 'form-status';
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+
+    try {
+      const response = await fetch(contactForm.action, {
+        method: 'POST',
+        body: new FormData(contactForm),
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        statusEl.textContent = "Thanks, your message is in. I'll get back to you soon.";
+        statusEl.classList.add('success');
+        contactForm.reset();
+      } else {
+        statusEl.textContent = "Something went wrong sending that. Please try again in a moment.";
+        statusEl.classList.add('error');
+      }
+    } catch (err) {
+      statusEl.textContent = "Network error. Check your connection and try again.";
+      statusEl.classList.add('error');
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = originalBtnHTML;
+    }
+  });
+}
