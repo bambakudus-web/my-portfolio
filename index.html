@@ -38,7 +38,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500&display=swap">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=2">
 <!-- Marks that JavaScript is running, so the fade-in effects never hide content when it is not -->
 <script>document.documentElement.classList.add('js')</script>
 <script type="application/ld+json">
@@ -369,7 +369,7 @@
     <form class="contact-form" action="https://formspree.io/f/mjgyawyw" method="POST" id="contactForm">
       <input type="hidden" name="_subject" value="New message from your portfolio">
       <!-- Spam trap: people never see this, bots fill it in -->
-      <div class="hp-field" aria-hidden="true"><label for="website">Leave this empty</label><input type="text" id="website" name="_gotcha" tabindex="-1" autocomplete="off"></div>
+      <div class="hp-field" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;"><label for="website">Leave this empty</label><input type="text" id="website" name="_gotcha" tabindex="-1" autocomplete="off"></div>
       <label for="name">Name</label>
       <input type="text" id="name" name="name" placeholder="Your name" autocomplete="name" required>
       <label for="email">Email</label>
@@ -387,6 +387,6 @@
   <p>© 2026 Harruna Abdul Kudus (DevKelly). Designed and coded by me.</p>
 </footer>
 
-<script src="script.js"></script>
+<script src="script.js?v=2"></script>
 </body>
 </html>
