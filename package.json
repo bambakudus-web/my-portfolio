@@ -1,0 +1,18 @@
+{
+  "name": "devkelly-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "DevKelly portfolio with a Brevo-powered contact form",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --env-file=.env server.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "compression": "^1.8.2",
+    "express": "^5.3.0"
+  }
+}

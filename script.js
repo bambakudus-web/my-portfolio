@@ -156,18 +156,20 @@ if (contactForm) {
     submitBtn.textContent = 'Sending...';
 
     try {
+      const data = Object.fromEntries(new FormData(contactForm));
       const response = await fetch(contactForm.action, {
         method: 'POST',
-        body: new FormData(contactForm),
-        headers: { 'Accept': 'application/json' }
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(data)
       });
+      const result = await response.json().catch(() => ({}));
 
       if (response.ok) {
         statusEl.textContent = "Thanks, your message is in. I'll get back to you soon.";
         statusEl.classList.add('success');
         contactForm.reset();
       } else {
-        statusEl.textContent = "Something went wrong sending that. Please try again in a moment.";
+        statusEl.textContent = result.error || "Something went wrong sending that. Please try again in a moment.";
         statusEl.classList.add('error');
       }
     } catch (err) {
