@@ -36,7 +36,7 @@
 
 <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
-<link rel="stylesheet" href="style.css?v=4">
+<link rel="stylesheet" href="style.css?v=5">
 <!-- Marks that JavaScript is running, so the fade-in effects never hide content when it is not -->
 <script>document.documentElement.classList.add('js')</script>
 <script type="application/ld+json">
@@ -58,6 +58,7 @@
 </script>
 </head>
 <body>
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 <a class="skip-link" href="#main">Skip to content</a>
 <header>
   <div class="nav-inner">
@@ -99,7 +100,7 @@
         <div class="photo-frame" id="tilt-photo">
           <img src="images/kudus.webp" alt="Harruna Abdul Kudus" width="778" height="1184" fetchpriority="high" decoding="async">
         </div>
-        <div class="float-chip chip-1"><strong>6+</strong>products shipped</div>
+        <div class="float-chip chip-1"><strong data-count="6" data-suffix="+">6+</strong>products shipped</div>
       </div>
       <div class="social-links-vertical">
         <a href="https://www.linkedin.com/in/abdul-kudus-harruna-4a91672b2" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
@@ -351,9 +352,15 @@
       <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" maxlength="200" required>
       <label for="message">Message</label>
       <textarea id="message" name="message" placeholder="What are you building?" maxlength="4000" minlength="10" required></textarea>
-      <button type="submit" class="btn-primary btn-block">Send message <i class="fa-solid fa-paper-plane" aria-hidden="true"></i></button>
+      <button type="submit" class="btn-primary btn-block send-btn"><span class="btn-label">Send message</span><span class="plane"><i class="fa-solid fa-paper-plane" aria-hidden="true"></i></span></button>
       <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
     </form>
+    <div class="form-success" id="formSuccess" hidden tabindex="-1" role="status">
+      <svg class="success-check" viewBox="0 0 52 52" aria-hidden="true"><circle class="sc-circle" cx="26" cy="26" r="24" fill="none"/><path class="sc-tick" fill="none" d="M15 27l8 8 14-16"/></svg>
+      <h3>Message sent</h3>
+      <p>Thank you<span id="successName"></span>. Your message has reached my inbox, and I will reply to the email address you provided as soon as I can.</p>
+      <button type="button" class="btn-ghost" id="sendAnother">Send another message</button>
+    </div>
   </div>
 </section>
 </main>
@@ -362,6 +369,6 @@
   <p>© 2026 Harruna Abdul Kudus (DevKelly). Designed and coded by me.</p>
 </footer>
 
-<script src="script.js?v=4"></script>
+<script src="script.js?v=5"></script>
 </body>
 </html>

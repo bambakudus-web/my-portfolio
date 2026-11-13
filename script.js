@@ -40,12 +40,13 @@ if ('IntersectionObserver' in window && sections.length) {
 }
 
 // ---------- scroll reveal (project cards) ----------
-const cards = document.querySelectorAll('.pcard');
+document.querySelectorAll('.service-card, .section-head, .about-text, .about-photo, .stack-card, .contact-inner').forEach(el => el.classList.add('reveal'));
+const cards = document.querySelectorAll('.pcard, .reveal');
 if ('IntersectionObserver' in window) {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry, i) => {
       if (entry.isIntersecting) {
-        entry.target.style.transitionDelay = (i % 4) * 0.08 + 's';
+        entry.target.style.transitionDelay = entry.target.style.animationDelay = (i % 4) * 0.08 + 's';
         entry.target.classList.add('in-view');
         observer.unobserve(entry.target);
       }
@@ -53,7 +54,7 @@ if ('IntersectionObserver' in window) {
   }, { threshold: 0.1 });
   cards.forEach(el => observer.observe(el));
   // safety net: never leave a card hidden if the observer is slow or blocked
-  setTimeout(() => cards.forEach(el => el.classList.add('in-view')), 3000);
+  setTimeout(() => cards.forEach(el => { if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('in-view'); }), 3000);
 } else {
   cards.forEach(el => el.classList.add('in-view'));
 }
@@ -141,43 +142,107 @@ cards.forEach(card => {
   }
 });
 
-// ---------- contact form: send in the background so people stay on the page ----------
+// ---------- scroll progress bar ----------
+const progressBar = document.getElementById('scrollProgress');
+if (progressBar) {
+  let ticking = false;
+  const updateProgress = () => {
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    progressBar.style.transform = 'scaleX(' + (max > 0 ? Math.min(window.scrollY / max, 1) : 0) + ')';
+    ticking = false;
+  };
+  window.addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(updateProgress); } }, { passive: true });
+  updateProgress();
+}
+
+// ---------- count-up numbers ----------
+document.querySelectorAll('[data-count]').forEach((el) => {
+  if (prefersReducedMotion || !('IntersectionObserver' in window)) return;
+  const target = Number(el.dataset.count);
+  const suffix = el.dataset.suffix || '';
+  el.textContent = '0' + suffix;
+  const io = new IntersectionObserver(([entry]) => {
+    if (!entry.isIntersecting) return;
+    io.disconnect();
+    const t0 = performance.now();
+    const step = (t) => {
+      const p = Math.min((t - t0) / 1200, 1);
+      el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3))) + suffix;
+      if (p < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  });
+  io.observe(el);
+});
+
+// ---------- contact form: plane flies off, then a thank-you panel appears ----------
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
   const statusEl = document.getElementById('formStatus');
   const submitBtn = contactForm.querySelector('button[type="submit"]');
-  const originalBtnHTML = submitBtn.innerHTML;
+  const labelEl = submitBtn.querySelector('.btn-label');
+  const successEl = document.getElementById('formSuccess');
+  const successName = document.getElementById('successName');
+  const sendAnother = document.getElementById('sendAnother');
+  const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+  const resetButton = (returning) => {
+    submitBtn.classList.remove('is-flying');
+    if (returning) {
+      submitBtn.classList.add('is-returning');
+      setTimeout(() => submitBtn.classList.remove('is-returning'), 600);
+    }
+    labelEl.textContent = 'Send message';
+    submitBtn.disabled = false;
+  };
+
+  const showError = (message) => {
+    statusEl.textContent = message;
+    statusEl.classList.add('error');
+    resetButton(true);
+  };
 
   contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     statusEl.textContent = '';
     statusEl.className = 'form-status';
     submitBtn.disabled = true;
-    submitBtn.textContent = 'Sending...';
+    labelEl.textContent = 'Sending';
+    submitBtn.classList.add('is-flying');
+    const flight = wait(prefersReducedMotion ? 0 : 900); // let the plane finish its take-off
 
     try {
       const data = Object.fromEntries(new FormData(contactForm));
-      const response = await fetch(contactForm.action, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify(data)
-      });
+      const [response] = await Promise.all([
+        fetch(contactForm.action, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(data)
+        }),
+        flight
+      ]);
       const result = await response.json().catch(() => ({}));
 
       if (response.ok) {
-        statusEl.textContent = "Thanks, your message is in. I'll get back to you soon.";
-        statusEl.classList.add('success');
+        const firstName = String(data.name || '').trim().split(/\s+/)[0];
+        successName.textContent = firstName ? ', ' + firstName : '';
         contactForm.reset();
+        contactForm.hidden = true;
+        successEl.hidden = false;
+        successEl.focus({ preventScroll: true });
+        resetButton(false);
       } else {
-        statusEl.textContent = result.error || "Something went wrong sending that. Please try again in a moment.";
-        statusEl.classList.add('error');
+        showError(result.error || 'Something went wrong sending that. Please try again in a moment.');
       }
     } catch (err) {
-      statusEl.textContent = "Network error. Check your connection and try again.";
-      statusEl.classList.add('error');
-    } finally {
-      submitBtn.disabled = false;
-      submitBtn.innerHTML = originalBtnHTML;
+      await flight;
+      showError('Network error. Check your connection and try again.');
     }
+  });
+
+  sendAnother.addEventListener('click', () => {
+    successEl.hidden = true;
+    contactForm.hidden = false;
+    contactForm.querySelector('input[name="name"]').focus();
   });
 }

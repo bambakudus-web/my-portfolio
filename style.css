@@ -247,3 +247,47 @@ footer p{color:var(--text-dim);font-size:0.82rem;font-family:var(--font-mono);}
   .pcard-body{padding:16px 16px 20px;}
   .contact-form input,.contact-form textarea{padding:12px 14px;}
 }
+/* ---------- motion polish ---------- */
+[hidden]{display:none !important;}
+.scroll-progress{position:fixed;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent-2));transform:scaleX(0);transform-origin:left;z-index:1000;pointer-events:none;}
+
+/* section reveal (uses an animation so hover transforms keep working afterwards) */
+@keyframes revealUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:none;}}
+.js .reveal:not(.in-view){opacity:0;}
+.reveal.in-view{animation:revealUp .7s ease backwards;}
+
+/* button shine */
+.btn-primary{position:relative;overflow:hidden;}
+.btn-primary::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,0.28) 50%,transparent 70%);transform:translateX(-120%);pointer-events:none;}
+.btn-primary:hover::after{transform:translateX(120%);transition:transform .7s ease;}
+
+/* send button: the plane takes off */
+.send-btn .plane{display:inline-flex;transition:transform .25s ease;}
+.send-btn:hover .plane{transform:translate(3px,-3px);}
+.send-btn.is-flying .plane{animation:planeFly .9s cubic-bezier(.5,0,.85,.45) forwards;}
+.send-btn.is-returning .plane{animation:planeReturn .5s ease-out;}
+.send-btn:disabled{cursor:progress;}
+@keyframes planeFly{
+  0%{transform:translate(0,0) rotate(0);opacity:1;}
+  25%{transform:translate(-5px,3px) rotate(-10deg);}
+  100%{transform:translate(190px,-80px) rotate(14deg) scale(.55);opacity:0;}
+}
+@keyframes planeReturn{from{transform:translate(-90px,30px);opacity:0;}to{transform:none;opacity:1;}}
+
+/* success panel */
+.form-success{text-align:center;padding:38px 26px;border:1px solid rgba(52,211,153,0.3);background:rgba(52,211,153,0.05);border-radius:14px;outline:none;animation:successIn .6s cubic-bezier(.2,.8,.2,1) both;}
+.form-success h3{font-family:var(--font-display);font-size:1.45rem;margin:14px 0 8px;}
+.form-success p{opacity:.8;line-height:1.7;margin:0 auto 22px;max-width:46ch;}
+.success-check{width:64px;height:64px;}
+.sc-circle,.sc-tick{stroke:var(--green);stroke-linecap:round;stroke-linejoin:round;}
+.sc-circle{stroke-width:2;stroke-dasharray:151;stroke-dashoffset:151;animation:scDraw .6s .15s ease forwards;}
+.sc-tick{stroke-width:3;stroke-dasharray:36;stroke-dashoffset:36;animation:scDraw .4s .65s ease forwards;}
+@keyframes scDraw{to{stroke-dashoffset:0;}}
+@keyframes successIn{from{opacity:0;transform:translateY(14px) scale(.97);}to{opacity:1;transform:none;}}
+
+@media (prefers-reduced-motion:reduce){
+  .send-btn.is-flying .plane{animation:none;opacity:0;}
+  .send-btn.is-returning .plane,.form-success,.reveal.in-view{animation:none;}
+  .sc-circle,.sc-tick{animation:none;stroke-dashoffset:0;}
+  .btn-primary:hover::after{transition:none;}
+}
