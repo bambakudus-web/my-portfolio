@@ -186,6 +186,51 @@ if (contactForm) {
   const sendAnother = document.getElementById('sendAnother');
   const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
+  // ----- friendly inline validation (replaces the browser's pop-up bubble) -----
+  const MIN_MESSAGE = 10;
+  const rules = {
+    name: (v) => (v.trim() ? '' : 'Please tell me your name.'),
+    email: (v) => (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()) ? '' : 'Please enter a valid email, like you@example.com.'),
+    message: (v) => (v.trim().length >= MIN_MESSAGE ? '' : 'Add a little more detail so I can help (at least ' + MIN_MESSAGE + ' characters).')
+  };
+  const charCount = document.getElementById('charCount');
+
+  const validateField = (id) => {
+    const input = document.getElementById(id);
+    const err = document.getElementById('err-' + id);
+    const message = rules[id](input.value);
+    input.classList.toggle('has-error', !!message);
+    input.setAttribute('aria-invalid', message ? 'true' : 'false');
+    err.textContent = message;
+    err.classList.toggle('show', !!message);
+    return !message;
+  };
+  const clearValidation = () => {
+    Object.keys(rules).forEach((id) => {
+      const input = document.getElementById(id);
+      input.classList.remove('has-error');
+      input.removeAttribute('aria-invalid');
+      const err = document.getElementById('err-' + id);
+      err.textContent = '';
+      err.classList.remove('show');
+    });
+    updateCount();
+  };
+  const updateCount = () => {
+    const n = document.getElementById('message').value.trim().length;
+    charCount.textContent = n >= MIN_MESSAGE ? n + ' characters' : n + ' / ' + MIN_MESSAGE + ' min';
+    charCount.classList.toggle('ok', n >= MIN_MESSAGE);
+  };
+
+  Object.keys(rules).forEach((id) => {
+    const input = document.getElementById(id);
+    input.addEventListener('blur', () => { if (input.value) validateField(id); });
+    input.addEventListener('input', () => {
+      if (input.classList.contains('has-error')) validateField(id); // clears the moment it is fixed
+      if (id === 'message') updateCount();
+    });
+  });
+
   const resetButton = (returning) => {
     submitBtn.classList.remove('is-flying');
     if (returning) {
@@ -206,6 +251,20 @@ if (contactForm) {
     e.preventDefault();
     statusEl.textContent = '';
     statusEl.className = 'form-status';
+
+    const invalid = Object.keys(rules).filter((id) => !validateField(id));
+    if (invalid.length) {
+      const first = document.getElementById(invalid[0]);
+      first.focus();
+      invalid.forEach((id) => {
+        const wrapper = document.getElementById(id).closest('.field');
+        wrapper.classList.remove('shake');
+        void wrapper.offsetWidth; // restart the animation
+        wrapper.classList.add('shake');
+      });
+      return;
+    }
+
     submitBtn.disabled = true;
     labelEl.textContent = 'Sending';
     submitBtn.classList.add('is-flying');
@@ -227,6 +286,7 @@ if (contactForm) {
         const firstName = String(data.name || '').trim().split(/\s+/)[0];
         successName.textContent = firstName ? ', ' + firstName : '';
         contactForm.reset();
+        clearValidation();
         contactForm.hidden = true;
         successEl.hidden = false;
         successEl.focus({ preventScroll: true });
